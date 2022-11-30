@@ -1,11 +1,5 @@
 <div class="new-container">
-  <div class="back-arrow">
-    <%= link_to root_path do%>
-    <%= image_tag "back.png",alt: "back", width: 16%>
-
-    <% end %>
-
-  </div>
+  <%= render 'partials/back_arrow', path:'root_path' %>
 
   <%= simple_form_for @workout do |f| %>
     <%= f.input :title,as: :text, label: false, input_html: {class:"form-new", placeholder: "WRITE YOUR WORKOUT NAME"} %>
