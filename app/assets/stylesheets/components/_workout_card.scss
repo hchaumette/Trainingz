@@ -1,0 +1,40 @@
+.card-workout {
+  background-image: asset-url("demo_workout.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.card-workout h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-workout p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-workout-infos {
+  background-color: rgba(245, 245, 245, .4);
+  border-radius: 25px;
+  padding: 8px 32px 0 32px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-workout-time {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: center;
+  color: #8884EC;
+}
