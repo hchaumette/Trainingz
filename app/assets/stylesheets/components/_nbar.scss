@@ -1,19 +1,11 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
 
-li {
-  float: left;
-}
+.navbar{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin-left: 20px;
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  i{
+    margin-left: 25px;
+  }
 }
