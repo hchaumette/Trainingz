@@ -1,0 +1,34 @@
+
+
+
+
+<h2>Add exercises</h2>
+  <div class="container">
+    <div class="margin-search-bar">
+      <%= form_with url: workout_exercises_path, method: :get, class: "search-bar-exercise" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "search-bar-exercise",
+          placeholder: "Search..."
+        %>
+        <%= submit_tag "Search", class: "d-none" %>
+      <% end %>
+    </div>
+    <div>
+      <% @exercises.each do |exercise| %>
+
+<%# Ajouter le fait de pouvoir selectionner et pouvoir submit, enlever le link_to ???%>
+        <div class="card-exercise">
+            <%= image_tag exercise.demonstration, class:"exercise-img"%>
+              <div class="font-size">
+                <%= exercise.title%>
+                <i class="fa-solid fa-check absolute-position"></i>
+              </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="button-height">
+    <%= link_to "Add" ,workouts_path(@workout), class:"big-button" %>
+  </div>
