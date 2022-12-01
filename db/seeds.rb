@@ -12,7 +12,7 @@ http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(url)
-request["X-RapidAPI-Key"] = 'cbd2cc8781msh965ef8f274c9a90p197ee1jsn8f68e546e7db'
+request["X-RapidAPI-Key"] = ENV["API_SPORT"]
 request["X-RapidAPI-Host"] = 'exercisedb.p.rapidapi.com'
 
 response = http.request(request)
