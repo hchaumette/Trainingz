@@ -15,8 +15,24 @@
 
 <div>
   <% round.workout_exercises.each do |workout_exercise| %>
-    <div class="d-flex">
-      <%= image_tag workout_exercise.exercise.demonstration , width: 32%>
+    <div class="d-flex justify-content-between align-items-center">
+      <%= image_tag workout_exercise.exercise.demonstration , width: 40%>
+      <div>
+        <p>10X</p>
+      </div>
+      <div>
+        <p><strong><%= workout_exercise.exercise.title %></strong></p>
+        <p><em>00:30</em></p>
+      </div>
+      <%= image_tag "arrow_open", width: 8, height: 16 %>
     </div>
   <% end %>
 </div>
+
+<%= link_to root_path, class:"link-succes" do %>
+  <div class="button-succes">
+
+  <div>Create</div>
+
+  </div>
+<% end %>
