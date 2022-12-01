@@ -1,2 +1,9 @@
-<h1>Workouts#new</h1>
-<p>Find me in app/views/workouts/new.html.erb</p>
+<div class="new-container">
+  <%= render 'partials/back_arrow', path:'root_path' %>
+
+  <%= simple_form_for @workout do |f| %>
+    <%= f.input :title,as: :text, label: false, input_html: {class:"form-new", placeholder: "WRITE YOUR WORKOUT NAME"} %>
+    <%= f.submit "create"%>
+  <% end %>
+
+</div>
