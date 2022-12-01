@@ -1,0 +1,15 @@
+<div class="home-card"></div>
+      <div class="grid-right">
+        <div class="glide1" data-controller="carousel" data-carousel-number-value=1>
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides text-deco-none">
+                <% @workouts.each do |workout| %>
+                <%= link_to workout_path(workout.exercice) do %>
+                  <li class="glide__slide"><%= render "shared/wourkout_card",  exercice: workout.exercice %></li>
+                <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
