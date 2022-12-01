@@ -1,2 +1,20 @@
-<h1>Workouts#show</h1>
-<p>Find me in app/views/workouts/show.html.erb</p>
+<div class="show-container">
+  <%= render 'partials/back_arrow', path:'root_path' %>
+  <div class="top">
+    <h1>WORKOUT NAME</h1>
+    <div class="workout_info">
+      <div class="time">
+      <p>45</p>
+      <p>min</p>
+      </div>
+      <div class="rounds">
+      <p>3</p>
+      <p>rounds</p>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/vertical_caroussel' %>
+  <div class="btn btn-success">
+    <p><%= "start" %></p>
+  </div>
+</div>
