@@ -19,7 +19,7 @@ response = http.request(request)
 
 exercises = JSON.parse(response.read_body)
 
-exercises.first(10).each do |exercise|
+exercises.first(9).each do |exercise|
   Exercise.create!(
     title: exercise["name"],
     equipment: exercise["equipment"],

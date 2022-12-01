@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :workouts
+
+  resources :workout_exercises
 end
