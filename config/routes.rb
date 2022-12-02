@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :workouts
 
-  resources :workout_exercises
+  resources :round, only: :create do
+    resources :workout_exercises
+  end
 end
