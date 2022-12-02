@@ -1,5 +1,25 @@
-<div class="new-container" >
-  <%= render 'partials/back_arrow', path:'root_path' %>
-  <h1 id="workout-creation-title"><%= @workout.title %></h1>
+<% if @workout.rounds.empty? %>
+
+  <div class="new-container" >
+    <%= render 'shared/back_arrow', path:'root_path' %>
+    <h1 id="workout-creation-title"><%= @workout.title %></h1>
+    <div class="d-flex align-items-center justify-content-center">
+        <%= image_tag "btnAdd.png", alt: "Add exercise", width: 236, id:"Add-ex-btn" %>
+    </div>
+  </div>
+
+<% else  %>
+
+  <%= render "shared/top_bar_creation", workout: @workout %>
+
+<div class="m-3">
+
+    <% @workout.rounds.each do |round| %>
+
+      <%= render "shared/round", round: round %>
+
+    <% end %>
+
+
 </div>
 <%= console %>

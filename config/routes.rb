@@ -7,4 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :workouts
+<<<<<<< Updated upstream
+=======
+
+  resources :workout_exercises
+
+  resources :rounds, only: %i[update]
+>>>>>>> Stashed changes
 end
