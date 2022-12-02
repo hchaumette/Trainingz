@@ -1,5 +1,6 @@
 .home{
   height: 100vh;
+  position: relative;
   h1{
     margin-top: 6vh;
   }
@@ -24,7 +25,14 @@
 }
 
 .nbar{
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  bottom: 4vh;
   width: 100%;
+}
+.homebar{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: fit-content;
+
 }
