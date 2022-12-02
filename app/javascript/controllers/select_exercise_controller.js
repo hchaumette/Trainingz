@@ -39,6 +39,6 @@ static values = {roundId: Number}
       }
 
     })
-    window.location.href = "http://www.w3schools.com";
+    window.location.href = `http://wwww.traininz.me/workouts/round/${this.roundIdValue}/workout_exercises`;
   }
 }
