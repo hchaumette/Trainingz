@@ -16,3 +16,9 @@
   align-items: center;
   margin: 20px auto;
 }
+
+.selected-exercise i {
+  color: $green;
+  border-radius: 50%;
+  border: 1px solid $green;
+}

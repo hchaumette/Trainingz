@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_103650) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_102658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_103650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "body_part"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.string "name"
+    t.bigint "workout_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workout_id"], name: "index_rounds_on_workout_id"
   end
 
   create_table "user_workouts", force: :cascade do |t|
@@ -58,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_103650) do
   end
 
   create_table "workout_exercises", force: :cascade do |t|
-    t.bigint "workout_id", null: false
     t.bigint "exercise_id", null: false
     t.integer "duration"
     t.integer "rest_duration"
@@ -66,8 +73,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_103650) do
     t.string "demonstration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "round_id", null: false
     t.index ["exercise_id"], name: "index_workout_exercises_on_exercise_id"
-    t.index ["workout_id"], name: "index_workout_exercises_on_workout_id"
+    t.index ["round_id"], name: "index_workout_exercises_on_round_id"
   end
 
   create_table "workouts", force: :cascade do |t|
@@ -83,9 +91,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_103650) do
 
   add_foreign_key "coachings", "users", column: "coach_id"
   add_foreign_key "coachings", "users", column: "trainee_id"
+  add_foreign_key "rounds", "workouts"
   add_foreign_key "user_workouts", "users"
   add_foreign_key "user_workouts", "workouts"
   add_foreign_key "workout_exercises", "exercises"
-  add_foreign_key "workout_exercises", "workouts"
+  add_foreign_key "workout_exercises", "rounds"
   add_foreign_key "workouts", "users"
 end
