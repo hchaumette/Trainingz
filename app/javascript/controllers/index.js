@@ -7,9 +7,8 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SelectExerciseController from "./select_exercise_controller"
+application.register("select-exercise", SelectExerciseController)
 
 import VerticalCarousselController from "./vertical_caroussel_controller"
 application.register("vertical-caroussel", VerticalCarousselController)
-
-import SelectExerciseController from "./select_exercise_controller"
-application.register("select-exercise", SelectExerciseController)
