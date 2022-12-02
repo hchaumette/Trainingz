@@ -1,6 +1,10 @@
 <div class="navbar w-100">
   <div class="icone d-flex justify-content-between w-100 text-center">
+
     <%= link_to root_path do %>
+
+    <%= link_to root_path, class:"element" do %>
+
       <div>
         <i class="fa-solid fa-house-user"></i>
         <p>Home</p>
@@ -15,13 +19,27 @@
     <% end %>
 
     <%= link_to root_path do %>
+
+    <%= link_to workouts_path, class:"element" do %>
+      <div>
+        <i class="fa-solid fa-dumbbell"></i>
+        <p style="text-decoration: none">Workouts</p>
+      </div>
+    <% end %>
+
+    <%= link_to new_workout_path, class:"element" do %>
+
       <div>
         <i class="fa-solid fa-square-plus"></i>
         <p>Add</p>
       </div>
     <% end %>
 
+
     <%= link_to root_path do %>
+
+    <%= link_to root_path, class:"element" do %>
+
       <div>
         <i class="fa-solid fa-user"></i>
         <p>Profile</p>

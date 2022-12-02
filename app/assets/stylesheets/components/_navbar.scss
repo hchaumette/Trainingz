@@ -1,9 +1,13 @@
 .navbar {
   justify-content: space-between;
-  background: white;
+  background: $light-gray;
+  background-size: 100%;
   width: 100%;
 
   .text{
     margin-top: 15px;
+  }
+  .container-fluid{
+    background: $light-gray;
   }
 }
