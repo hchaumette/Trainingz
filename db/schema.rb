@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_102658) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_100120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_102658) do
     t.bigint "workout_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sets", default: 1
+    t.integer "exercises_time", default: 30
+    t.integer "exercises_rest", default: 0
+    t.integer "round_rest", default: 30
+    t.integer "exercises_reps", default: 10
     t.index ["workout_id"], name: "index_rounds_on_workout_id"
   end
 
