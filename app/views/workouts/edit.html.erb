@@ -3,8 +3,15 @@
   <div class="new-container" >
     <%= render 'shared/back_arrow', path:'root_path' %>
     <h1 id="workout-creation-title"><%= @workout.title %></h1>
-    <div class="d-flex align-items-center justify-content-center">
-        <%= image_tag "btnAdd.png", alt: "Add exercise", width: 236, id:"Add-ex-btn" %>
+    <div data-controller="add-workout">
+          <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+              <%= f.submit %>
+          <% end %>
+            <div class="d-flex align-items-center justify-content-center">
+          <div data-action="click->add-workout#send">
+          <%= render "shared/add_button"%>
+            </div>
+          </div>
     </div>
   </div>
 
