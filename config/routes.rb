@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  resources :workouts
-
-  resources :round, only: [:create, :update] do
+  resources  :rounds, only: :update do
     resources :workout_exercises
   end
+  resources :workouts do
+    resources :rounds, only: [:create, :new]
+  end
+
 end

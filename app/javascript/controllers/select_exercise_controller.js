@@ -42,6 +42,7 @@ static values = {roundId: Number}
             console.log(data)
         })
       }
+
     })
 
   }
