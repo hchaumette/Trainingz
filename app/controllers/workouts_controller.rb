@@ -20,7 +20,7 @@ class WorkoutsController < ApplicationController
 
   def edit
     @workout = Workout.find(params[:id])
-    @workout.round_ids = @round
+
     @round = Round.new
   end
 
