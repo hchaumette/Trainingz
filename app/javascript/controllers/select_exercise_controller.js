@@ -27,7 +27,6 @@ static values = {roundId: Number}
 
   confirm() {
     this.token = document.getElementsByName("csrf-token")[0].content
-    console.log(this.roundIdValue);
     this.exerciseTargets.forEach((exercise) => {
 
       if (exercise.dataset.selected === "true") {
@@ -37,13 +36,9 @@ static values = {roundId: Number}
           headers: { "Accept": "application/json", "X-CSRF-Token": this.token },
           body: {"exercise_id": exercise.dataset.exerciseId}
         })
-          .then(response => response.json())
-          .then((data) => {
-            console.log(data)
-        })
       }
 
     })
-
+    window.location.href = "http://www.w3schools.com";
   }
 }

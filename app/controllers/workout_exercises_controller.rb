@@ -2,6 +2,7 @@ class WorkoutExercisesController < ApplicationController
 
   def index
     @round = Round.find(params[:round_id])
+    @workout = @round.workout
     @exercises = Exercise.all
     if params[:query].present?
       sql_query = "title ILIKE :query OR equipment ILIKE :query"
