@@ -14,11 +14,15 @@
   .top{
     background-color: rgba(245, 245, 245, .4);
     border-radius: 10px;
+    margin-top: 4vh;
+    width: 90%;
+    margin-left: 2vh;
+    color: $gray;
   }
 
   .workout_info{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .btn {
