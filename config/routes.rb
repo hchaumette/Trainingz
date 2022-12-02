@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :workouts
 
   resources :workout_exercises
+
+  resources :rounds, only: %i[update]
 end

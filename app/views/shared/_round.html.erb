@@ -1,38 +1,54 @@
-<div class="d-flex justify-content-between">
-  <div class="title-decoration">
-    <h2><%= round.name %></h2>
-    <%= image_tag "Vector", width: 96 %>
+<div data-controller="round">
+  <div class="d-flex justify-content-between">
+    <div class="title-decoration">
+      <h2><%= round.name %></h2>
+      <%= image_tag "Vector", width: 96 %>
+    </div>
+    <input type="number" class="round-input" data-round-target="sets" value="<%= round.sets%>" >
+    <p>sets</p>
   </div>
-  <p>n° of turns</p>
-</div>
-
-<div class="d-flex justify-content-between">
-  <p>30 rest</p>
-  <p>50 sec/ex</p>
-  <p>10 reps</p>
-</div>
 
 
-<div>
-  <% round.workout_exercises.each do |workout_exercise| %>
-    <div class="d-flex justify-content-between align-items-center">
-      <%= image_tag workout_exercise.exercise.demonstration , width: 40%>
-      <div>
-        <p>10X</p>
+
+  <div class="d-flex justify-content-between">
+    <input type="number" class="round-input" data-round-target="rest" value="<%= round.exercises_rest%>" >
+    <p>rest</p>
+    <input type="number" class="round-input" data-round-target="ex-time" value="<%= round.exercises_time%>">
+    <p>sec/ex</p>
+    <input type="number" class="round-input" data-round-target="reps" value="<%= round.exercises_reps%>">
+    <p>reps</p>
+  </div>
+
+
+  <%= simple_form_for round, data: { target: "form"} do |f|%>
+    <%= f.input :sets ,input_html: { data: { target:"form-sets"}} %>
+    <%= f.input :exercises_rest ,input_html: { data: { target:"form-rest"}}%>
+    <%= f.input :exercises_reps ,input_html: { data: { target:"form-reps"}}%>
+    <%= f.input :exercises_time ,input_html: { data: { target:"form-time"}}%>
+    <%= f.submit %>
+  <% end %>
+  <div>
+    <% round.workout_exercises.each do |workout_exercise| %>
+      <div class="d-flex justify-content-between align-items-center">
+        <%= image_tag workout_exercise.exercise.demonstration , width: 40%>
+        <div>
+          <p>10X</p>
+        </div>
+        <div>
+          <p><strong><%= workout_exercise.exercise.title %></strong></p>
+          <p><em>00:30</em></p>
+        </div>
+        <%= image_tag "arrow_open", width: 8, height: 16 %>
       </div>
-      <div>
-        <p><strong><%= workout_exercise.exercise.title %></strong></p>
-        <p><em>00:30</em></p>
-      </div>
-      <%= image_tag "arrow_open", width: 8, height: 16 %>
+    <% end %>
+  </div>
+
+  <%= link_to root_path, class:"link-succes" do %>
+    <div class="button-succes">
+
+    <div>Create</div>
+
     </div>
   <% end %>
 </div>
 
-<%= link_to root_path, class:"link-succes" do %>
-  <div class="button-succes">
-
-  <div>Create</div>
-
-  </div>
-<% end %>
