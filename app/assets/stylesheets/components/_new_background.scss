@@ -4,32 +4,29 @@ background-position: right top;
 height: 100vh;
 background-image: linear-gradient(0deg, rgba(134, 236, 132, 0.8), rgba(134, 236, 132, 0.8)), asset-url("femme-sport.jpg");
 position: relative;
-display: flex;
+}
 
-  .back-arrow{
-    position: absolute;
-    top: 12px;
-    left: 24px;
-  }
+.form-new{
+  background-color: #f000;
+  border: none;
+  font-size: 30px;
+  resize: none;
+}
 
-  #new_workout{
-    align-self: center;
-  }
-  .form-new{
-    background-color: #f000;
-    border: none;
-    font-size: 30px;
-    resize: none;
-  }
+.form-new:focus{
+  border: none;
+  outline: none !important;
+  box-shadow: none ;
+}
 
-  .form-new:focus{
-    border: none;
-    outline: none !important;
-    box-shadow: none ;
-  }
-
+#new_workout{
+  align-self: center;
 }
 
 #workout-creation-title{
-  margin: 32px 24px;
+  padding: 32px 24px;
+}
+
+#Add-ex-btn{
+  margin-top: 25%;
 }
