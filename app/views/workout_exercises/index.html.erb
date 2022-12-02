@@ -23,11 +23,11 @@
       <div >
         <% @exercises.each do |exercise| %>
           <div class="card-exercise" data-select-exercise-target="exercise" data-exercise-id = <%=exercise.id%> data-action= "click->select-exercise#select" data-selected=false>
-              <%= image_tag exercise.demonstration, class:"exercise-img"%>
-                <div class="font-size">
-                  <%= exercise.title%>
-                  <i class="fa-solid fa-check absolute-position"></i>
-                </div>
+            <%= image_tag exercise.demonstration, class:"exercise-img"%>
+            <div class="font-size">
+              <%= exercise.title%>
+              <i class="fa-solid fa-check"></i>
+            </div>
           </div>
         <% end %>
       </div>

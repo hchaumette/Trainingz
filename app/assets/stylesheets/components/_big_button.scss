@@ -17,7 +17,8 @@
   margin: 20px auto;
 }
 
-.selected-exercise {
+.selected-exercise i {
   color: $green;
-  background-color: $blue;
+  border-radius: 50%;
+  border: 1px solid $green;
 }

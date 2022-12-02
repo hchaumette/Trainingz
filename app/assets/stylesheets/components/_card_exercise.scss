@@ -7,11 +7,11 @@
   padding: 8px;
   overflow: hidden;
   border-bottom: 1px solid rgba(163, 163, 163, 0.478);
-  border-radius: 8px;
 }
 
 
 .exercise-img {
+  border-radius: 8px;
   width: 100px;
   border-radius: 8px;
 }
@@ -22,12 +22,9 @@
   padding: 10px;
   margin: auto 0;
   display: flex;
-  position: relative;
+  justify-content: end;
 }
 
 
 .absolute-position {
-  position: absolute;
-  left: 172px;
-  top: 14px;
 }
