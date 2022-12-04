@@ -3,6 +3,8 @@ require 'json'
 class WorkoutExercisesController < ApplicationController
 
   def index
+    @round = Round.find(params[:round_id])
+    @workout = @round.workout
     @exercises = Exercise.all
     if params[:query].present?
       sql_query = "title ILIKE :query OR equipment ILIKE :query"
@@ -13,10 +15,9 @@ class WorkoutExercisesController < ApplicationController
     end
   end
 
+
+
   def create
-    p "=============================="
-    puts request.body.string
-    p "==============================="
     @round = Round.find(params[:round_id])
     @exercise = Exercise.find(params[:exercise_id])
     @workout_exercise = WorkoutExercise.new(duration: @exercise.duration)

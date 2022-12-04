@@ -1,12 +1,11 @@
-
-  <div class="homebar">
+<div class="homebar">
   <%= render 'shared/navbar' %>
-  </div>
-
+</div>
+<div class="home">
   <div class="container" >
     <h1>Welcome Hugo</h1>
     <div class="quote">
-      <p>Blabla inspirant TRES TRES TRES TRES LONG</p>
+      <p>"Si tu détestes recommencer, arrête d'abandonner"</p>
     </div>
 
     <div class="display_workout">
@@ -14,8 +13,11 @@
       <h2>session today</h2>
       <div class="caroussel">
         <%= render 'shared/workout_card' %>
+        <%= render 'shared/workout_card' %>
       </div>
     </div>
   </div>
-
-    <%= render 'shared/nbar' %>
+</div>
+<div class="nbar">
+  <%= render 'shared/nbar' %>
+</div>
