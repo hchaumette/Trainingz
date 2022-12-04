@@ -6,6 +6,7 @@ class WorkoutExercisesController < ApplicationController
     @round = Round.find(params[:round_id])
     @workout = @round.workout
     @exercises = Exercise.all
+    @workout_exercise = WorkoutExercise.new
     if params[:query].present?
       sql_query = "title ILIKE :query OR equipment ILIKE :query"
       @exercises = Exercise.where(sql_query, query: "%#{params[:query]}%")
@@ -19,8 +20,13 @@ class WorkoutExercisesController < ApplicationController
 
   def create
     @round = Round.find(params[:round_id])
-    @exercise = Exercise.find(params[:exercise_id])
-    @workout_exercise = WorkoutExercise.new(duration: @exercise.duration)
-    @workout_exercise.round = @round
+    @exercise = Exercise.find(params[:workout_exercise][:exercise])
+    @workout_exercise = WorkoutExercise.new(round: @round, exercise: @exercise)
+    if @workout_exercise.save
+      respond_to do |format|
+        format.html { redirect_to edit_workout_path(@round.workout) }
+        format.text { render "workouts/edit", locals: { workout: @round.workout }, formats: [:html] }
+      end
+    end
   end
 end
