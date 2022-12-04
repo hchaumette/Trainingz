@@ -1,4 +1,13 @@
 class RoundsController < ApplicationController
+  def create
+    @workout = Workout.find(params[:workout_id])
+    @round = Round.new()
+    @round.workout = @workout
+    if @round.save
+      redirect_to round_workout_exercises_path(@round)
+    else
+    end
+  end
 
   def update
     @round = Round.find(params[:id])

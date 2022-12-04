@@ -28,13 +28,32 @@ static targets = ["exercise"]
   }
 
   confirm() {
+<<<<<<< Updated upstream
     console.log("confirmed");
     this.exerciseTargets.forEach((exercise)=> {
+=======
+>>>>>>> Stashed changes
 
+    this.token = document.getElementsByName("csrf-token")[0].content;
+    this.exerciseTargets.forEach((exercise) => {
       if (exercise.dataset.selected === "true") {
         console.log("FETCH");
+<<<<<<< Updated upstream
+=======
+        const path = `/rounds/${this.roundIdValue}/workout_exercises`;
+        console.log(path);
+        fetch(path, {
+          method: "POST",
+          headers: { "Accept": "application/json", "X-CSRF-Token": this.token },
+          body: {"exercise_id": exercise.dataset.exerciseId}
+        })
+>>>>>>> Stashed changes
       }
     })
+<<<<<<< Updated upstream
 
+=======
+    // window.location.href = `http://wwww.trainingz.me/round/${this.roundIdValue}/workout_exercises`;
+>>>>>>> Stashed changes
   }
 }

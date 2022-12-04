@@ -1,3 +1,5 @@
+require 'json'
+
 class WorkoutExercisesController < ApplicationController
 
   def index
@@ -9,5 +11,15 @@ class WorkoutExercisesController < ApplicationController
       @exercises = Exercise.all
 
     end
+  end
+
+  def create
+    p "=============================="
+    puts request.body.string
+    p "==============================="
+    @round = Round.find(params[:round_id])
+    @exercise = Exercise.find(params[:exercise_id])
+    @workout_exercise = WorkoutExercise.new(duration: @exercise.duration)
+    @workout_exercise.round = @round
   end
 end
