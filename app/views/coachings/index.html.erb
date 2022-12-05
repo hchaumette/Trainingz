@@ -1,10 +1,4 @@
 <h1>My Coachings</h1>
-<% @coachings.each do |coaching| %>
-  <%= coaching.trainee.name %>
-
-<% end %>
-
-
 
 <div class="margin-search-bar sticky-top-search">
       <%= form_with url: coachings_path, method: :get, class: "search-bar-exercise" do %>
@@ -17,14 +11,37 @@
       <% end %>
 </div>
 
-<% @users.each do |user| %>
-  <div class="d-flex justify-content-around align-items-center mt-5">
-    <%= user.name %>
-    <%= simple_form_for @coaching do |f| %>
-      <%= f.input :trainee,input_html:{value: user.id, class:"d-none"}, label_html:{class:"d-none"} %>
-      <%= f.submit "add" %>
+<% if current_user.coach %>
+
+  <% @coachings.each do |coaching| %>
+    <%= coaching.trainee.name %>
+  <% end %>
+
+    <% @users.each do |user| %>
+    <div class="d-flex justify-content-around align-items-center mt-5">
+      <%= user.name %>
+      <%= simple_form_for @coaching do |f| %>
+        <%= f.input :trainee,input_html:{value: user.id, class:"d-none"}, label_html:{class:"d-none"} %>
+        <%= f.submit "add" %>
+      <% end %>
+    </div>
     <% end %>
 
-  </div>
+<% else %>
+
+<% @coachings.each do |coaching| %>
+  <%= coaching.coach.name %>
+<% end %>
+
+  <% @users.each do |user| %>
+    <div class="d-flex justify-content-around align-items-center mt-5">
+      <%= user.name %>
+      <%= simple_form_for @coaching do |f| %>
+        <%= f.input :coach, input_html:{value: user.id, class:"d-none"}, label_html:{class:"d-none"} %>
+        <%= f.submit "add" %>
+      <% end %>
+    </div>
+    <% end %>
+
 
 <% end %>
