@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :rounds, only: [:create, :new]
   end
 
+  resources :coachings, only: %i[index create]
+
   get '/workouts/:id/created', to: "workouts#created", as: :created
 end
