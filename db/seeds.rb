@@ -51,7 +51,7 @@ puts "Done"
 
 
 puts "Create 4 users"
-user1 = User.create(email: "jean@wagon.org", password: "password", coach: true)
+user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe", coach: true)
 user2 = User.create(email: "julien@wagon.org", password: "password")
 user3 = User.create(email: "etienne@mail.com", password: "password", coach: true)
 user4 = User.create(email: "frederic@gmail.fr", password: "password")
