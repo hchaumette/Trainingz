@@ -1,17 +1,18 @@
 <div class="show-container">
-  <%= render 'shared/back_arrow', path:'root_path' %>
+  <%= render 'shared/back_arrow'%>
   <div class="top">
-    <h1>WORKOUT NAME</h1>
+    <h1> <%= @workout.title %> </h1>
     <div class="workout_info">
       <div class="time">
-      <p>45</p>
+      <p> <%= @workout.duration%></p>
       <p>min</p>
       </div>
       <div class="rounds">
-      <p>3</p>
+      <p><%= @workout.rounds.size%></p>
       <p>rounds</p>
       </div>
     </div>
   </div>
-  <%= render 'shared/vertical_caroussel' %>
+    <%= render 'shared/vertical_caroussel' %>
+  <p><%= @exercises.name %></p>
 </div>

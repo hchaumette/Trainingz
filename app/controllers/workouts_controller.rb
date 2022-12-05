@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @exercises = Exercise.all
+    @durations = @exercises.map { |exercice| exercice.duration }
   end
 
   def edit
@@ -36,6 +37,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:title)
+    params.require(:workout).permit(:title, :duration)
   end
 end
