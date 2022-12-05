@@ -16,6 +16,7 @@ UserWorkout.destroy_all
 puts "workout"
 Workout.destroy_all
 puts "user"
+Coaching.destroy_all
 User.destroy_all
 puts "Done"
 
@@ -80,10 +81,11 @@ puts "Done"
 
 
 puts "Create 4 users"
-user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe", coach: true)
-user2 = User.create(email: "julien@wagon.org", password: "password")
-user3 = User.create(email: "etienne@mail.com", password: "password", coach: true)
-user4 = User.create(email: "frederic@gmail.fr", password: "password")
+user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe")
+user2 = User.create(email: "julien@wagon.org", password: "password", name: "lucas")
+user3 = User.create(email: "etienne@mail.com", password: "password", coach: true, name: "théo")
+user4 = User.create(email: "hugo@mail.com", password: "000000", name: "hugo", coach: true)
+User.create(email: "frederic@gmal.fr", password: "password", name: "Maxence")
 puts "Done"
 
 
