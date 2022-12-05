@@ -2,8 +2,8 @@
   <div class="top_bar sticky-top">
     <h2>Workout Created</h2>
   </div>
-<div data-controller="share-button">
-  <div class="shared-container" data-share-button-target="shared">
+
+  <div class="shared-container">
     <div class="shared-card">
       <div class="shared-card-name">
         <%= @user.name %>
@@ -22,11 +22,10 @@
   <div class="sticky-bot">
     <div class="button-height">
     <%# ajouter le stimulus pour partager %>
-      <div class="big-button" data-action="click->share-button#sharing">Share with your friends</div>
+      <%= link_to "Share with your friends", send_path, class:"big-button" %>
     </div>
 
     <div class="button-height text-deco-none">
     <%= link_to "Skip sharing", workouts_path, class:"textdeco"%>
     </div>
   </div>
-</div>

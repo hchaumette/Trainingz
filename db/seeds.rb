@@ -91,15 +91,15 @@ puts "Done"
 
 
 puts "Create 4 workouts"
-workout1 = Workout.create(title: "Workout 1", user: user1)
+workout1 = Workout.create(title: "Workout 1", user_id: user4)
 puts "Done"
 
 
 
 
 puts "Create 4 rounds "
-round1 = Round.create(name: "Premier", workout: workout1)
+round1 = Round.create(name: "Premier", workout_id: workout1)
 puts "Done"
 
 
-WorkoutExercise.create(round: round1, exercise: Exercise.last)
+WorkoutExercise.create(round_id: round1, exercise: Exercise.last)
