@@ -1,0 +1,17 @@
+<div class="top-dash">
+  <%= render "shared/back_arrow" %>
+  <h1>DASHBOARD</h1>
+</div>
+
+
+<% if current_user.coach=true %>
+  <% current_user.workout %>
+<% else %>
+  <%= render 'shared/search_workout' %>
+<% end %>
+
+
+
+ <div class="nbar">
+    <%= render 'shared/nbar' %>
+</div>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :dashboards, only: [:index]
+
   resources :rounds, only: :update do
     resources :workout_exercises
   end
