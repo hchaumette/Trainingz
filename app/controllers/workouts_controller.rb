@@ -25,6 +25,24 @@ class WorkoutsController < ApplicationController
   end
 
   def update
+    @workout = Workout.find(params[:id])
+    time = 0
+    body_part = []
+    @workout.rounds.each do |round|
+      round.workout_exercises.each do |workout_exercise|
+        time += workout_exercise.duration + workout_exercise.rest_duration
+        unless body_part.include?(workout_exercise.exercise.body_part)
+          body_part << workout_exercise.exercise.body_part
+        end
+      end
+    end
+    @workout.duration = time
+    @workout.body_focus = body_part.join(',')
+    redirect_to created_path(@workout)
+  end
+
+  def created
+
   end
 
   def destroy

@@ -25,11 +25,16 @@
 
       <%# Ajouter le fait de pouvoir selectionner et pouvoir submit, enlever le link_to ???%>
 
-    <div data-controller="select-exercise" data-select-exercise-round-id-value=<%= @round.id %>>
+    <div data-controller="select-exercise" data-select-exercise-round-id-value=<%= @round.id %> data-select-exercise-workout-id-value=<%=@workout.id%>>
 
       <div >
         <% @exercises.each do |exercise| %>
           <div class="card-exercise" data-select-exercise-target="exercise" data-exercise-id=<%=exercise.id%> data-action="click->select-exercise#select" data-selected=false>
+            <%= simple_form_for [@round,@workout_exercise],html:{class:'d-none'} do |f| %>
+            <%= f.input :exercise %>
+            <%= f.submit %>
+
+            <% end %>
             <%= image_tag exercise.demonstration, class:"exercise-img"%>
             <div class="font-size">
               <%= exercise.title%>
@@ -38,15 +43,10 @@
           </div>
         <% end %>
       </div>
-
-          <div class="button-height sticky-bot" >
-            <div class="big-button" data-action="click->select-exercise#confirm" >Add</div>
-          </div>
-
+      <div class="button-height sticky-bot" >
+        <div class="big-button" data-action="click->select-exercise#confirm" >Add</div>
+      </div>
 
     </div>
-
-
-
 
   </div>

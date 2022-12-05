@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resources :user_workouts, only: :index
   end
 
+  get '/workouts/:id/created', to: "workouts#created", as: :created
 end
