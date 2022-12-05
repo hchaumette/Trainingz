@@ -1,3 +1,32 @@
+
 .shared-card {
-margin: 0 auto;
+  margin: 20px auto;
+  height: 60vh;
+  width: 80%;
+  padding: 8px;
+}
+
+
+.shared-card-name {
+  text-align: center;
+}
+
+
+.shared-card-else {
+  margin-top: 10px;
+}
+
+
+.shared-card-else h3 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.shared-card-else p {
+  margin-top: 40px;
+}
+
+
+.textdeco {
+  text-decoration: none !important;
 }

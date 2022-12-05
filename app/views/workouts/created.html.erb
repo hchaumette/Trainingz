@@ -2,11 +2,31 @@
   <div class="top_bar sticky-top">
     <h2>Workout Created</h2>
   </div>
+<div data-controller="share-button">
+  <div class="shared-container" data-share-button-target="shared">
+    <div class="shared-card">
+      <div class="shared-card-name">
+        <%= @user.name %>
+      </div>
+      <div class="shared-card-else">
+      <h3>Your workout</h3>
+        <p><strong>Title :</strong> <%= @title %></p>
+        <p><strong>Duration : </strong><%= @workout.duration %> minutes</p>
+        <p><strong>Body Focus : </strong><%= @workout.body_focus %></p>
+        <p><strong>Type of Workout : </strong><%= @workout.type_of_workout %></p>
 
-
-  <div class="shared-card">
-
-  <%= @user.name %>
-  <%= @title %>
-
+      </div>
+    </div>
   </div>
+
+  <div class="sticky-bot">
+    <div class="button-height">
+    <%# ajouter le stimulus pour partager %>
+      <div class="big-button" data-action="click->share-button#sharing">Share with your friends</div>
+    </div>
+
+    <div class="button-height text-deco-none">
+    <%= link_to "Skip sharing", workouts_path, class:"textdeco"%>
+    </div>
+  </div>
+</div>

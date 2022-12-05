@@ -45,6 +45,12 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @user = @workout.user
     @title = @workout.title
+    @workout.duration = @workout.duration / 60
+  end
+
+  def send
+    @workout = Workout.find(params[:id])
+
   end
 
   def destroy

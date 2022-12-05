@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   get '/workouts/:id/created', to: "workouts#created", as: :created
+  get '/workouts/:id/send', to: "workouts#send", as: :send
 end
