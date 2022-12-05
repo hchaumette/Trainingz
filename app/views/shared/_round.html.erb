@@ -34,22 +34,15 @@
       <div class="d-flex justify-content-between align-items-center">
         <%= image_tag workout_exercise.exercise.demonstration , width: 40%>
         <div>
-          <p>10X</p>
+          <%= workout_exercise.repetitions %>X
         </div>
         <div>
           <p><strong><%= workout_exercise.exercise.title %></strong></p>
-          <p><em>00:30</em></p>
+          <p><em><%= workout_exercise.duration %></em></p>
         </div>
         <%= image_tag "arrow_open", width: 8, height: 16 %>
       </div>
     <% end %>
   </div>
 
-  <%= link_to root_path, class:"link-succes" do %>
-    <div class="button-succes">
-
-    <div>Create</div>
-
-    </div>
-  <% end %>
 </div>

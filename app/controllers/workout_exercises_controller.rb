@@ -1,5 +1,5 @@
 require 'json'
-
+require 'open-uri'
 class WorkoutExercisesController < ApplicationController
 
   def index
@@ -16,12 +16,10 @@ class WorkoutExercisesController < ApplicationController
     end
   end
 
-
-
   def create
     @round = Round.find(params[:round_id])
-    @exercise = Exercise.find(params[:workout_exercise][:exercise])
-    @workout_exercise = WorkoutExercise.new(round: @round, exercise: @exercise)
-    @workout_exercise.save
+    request.body.string.split(',').drop(1).each do |exercise_id|
+      WorkoutExercise.create!(round: @round, exercise_id: exercise_id.to_i)
+    end
   end
 end

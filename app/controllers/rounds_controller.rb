@@ -3,10 +3,8 @@ class RoundsController < ApplicationController
     @workout = Workout.find(params[:workout_id])
     @round = Round.new()
     @round.workout = @workout
-    if @round.save
-      redirect_to round_workout_exercises_path(@round)
-    else
-    end
+    @round.save
+    redirect_to round_workout_exercises_path(@round)
   end
 
   def update

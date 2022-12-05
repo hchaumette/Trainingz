@@ -7,6 +7,7 @@ static targets = ["exercise"]
 static values = {roundId: Number, workoutId: Number}
 
   connect() {
+
   }
 
   select(event){
@@ -23,18 +24,24 @@ static values = {roundId: Number, workoutId: Number}
 
   confirm() {
     this.token = document.getElementsByName("csrf-token")[0].content
+    let exerciseId = ""
     this.exerciseTargets.forEach((exercise) => {
       if (exercise.dataset.selected === "true") {
-        exercise.children[0].children[1].children[1].value = exercise.dataset.exerciseId
-        const path = `/rounds/${this.roundIdValue}/workout_exercises`;
-        fetch(path, {
-          method: "POST",
-          headers: { "Accept": "application/json", "X-CSRF-Token": this.token },
-          body: new FormData(exercise.children[0])
-        })
+        exerciseId = exerciseId + "," + exercise.dataset.exerciseId;
+        console.log(exerciseId)
+        exercise.children[0].children[1].children[1].value = exercise.dataset.exerciseId;
+
+
       }
     })
-    window.location.href = `${window.location.href.match(/(.*)(rounds.*)/)[1]}workouts/${this.workoutIdValue}/edit`
+    const path = `/rounds/${this.roundIdValue}/workout_exercises`;
+    fetch(path, {
+      method: "POST",
+      headers: { "Accept": "application/json", "X-CSRF-Token": this.token },
+      body: exerciseId
+    }).then(response => {
+      window.location.href = `${window.location.href.match(/(.*)(rounds.*)/)[1]}workouts/${this.workoutIdValue}/edit`
+    })
   }
 
 }
