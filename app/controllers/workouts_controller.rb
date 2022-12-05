@@ -49,6 +49,12 @@ class WorkoutsController < ApplicationController
     @workout.duration = @workout.duration / 60
   end
 
+  def share
+    @workout = Workout.find(params[:id])
+    @user_workout = UserWorkout.new
+    @trainees = current_user.trainees
+  end
+
   def destroy
   end
 

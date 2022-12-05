@@ -1,0 +1,14 @@
+<h1>Share</h1>
+
+<h2>My trainees</h2>
+
+<% @trainees.each do |trainee| %>
+  <div>
+    <%= trainee.name %>
+
+    <%= simple_form_for [@workout,@user_workout] do |f| %>
+      <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
+      <%= f.submit "share" %>
+    <% end %>
+  </div>
+<% end %>
