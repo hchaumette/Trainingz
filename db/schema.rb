@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_100120) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_115010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_100120) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "Round 1"
     t.bigint "workout_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,15 +66,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_100120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "coach", default: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "workout_exercises", force: :cascade do |t|
     t.bigint "exercise_id", null: false
-    t.integer "duration"
-    t.integer "rest_duration"
-    t.integer "repetitions"
+    t.integer "duration", default: 30
+    t.integer "rest_duration", default: 0
+    t.integer "repetitions", default: 10
     t.string "demonstration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
