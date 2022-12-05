@@ -4,12 +4,7 @@
 </div>
 
 
-<% if current_user.coach=true %>
-  <% current_user.workout %>
-<% else %>
-  <%= render 'shared/search_workout' %>
-<% end %>
-
+<%= render 'shared/search_workout' %>
 
 
  <div class="nbar">

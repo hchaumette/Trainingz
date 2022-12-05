@@ -5,7 +5,7 @@ class Workout < ApplicationRecord
 
   include PgSearch::Model
 
-  pg_search_scope :search_by_title,
+  pg_search_scope :search_by,
   against: [ :title, :duration],
   using: {
     tsearch: { prefix: true }

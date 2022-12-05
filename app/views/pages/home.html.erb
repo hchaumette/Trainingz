@@ -15,8 +15,12 @@
       </div>
 
       <div class="caroussel">
-        <%= render 'shared/workout_card' %>
-        <%= render 'shared/workout_card' %>
+        <%= link_to workout_path(7), class:"element" do %>
+          <%= render 'shared/workout_card' %>
+        <% end %>
+        <%= link_to workout_path(8), class:"element" do %>
+          <%= render 'shared/workout_card' %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,6 +1,13 @@
 class DashboardsController < ApplicationController
   def index
-    @workouts = Workout.all
+    @workouts = []
+
+    if current_user.coach
+      @workout = User.workout
+    else
+      @workout = current_user.user_workouts
+    end
+
     if params[:query].present?
       @query = params[:query]
       @search_workouts = Workout.search_by_title(params[:query])

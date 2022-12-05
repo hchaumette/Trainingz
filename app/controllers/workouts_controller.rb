@@ -53,6 +53,18 @@ class WorkoutsController < ApplicationController
   end
 
   def index
+    @workouts = Workout.all
+
+    if params[:query].present?
+      @query = params[:query]
+      @search_workout = Workout.search_by(params[:query])
+      unless @search_workout.empty?
+        @workouts = @search_workout
+      end
+    else
+      @duration = params[:duration]
+      @duration_workout = @workouts.where(duration: @duration) if @duration
+    end
   end
 
   private
