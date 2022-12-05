@@ -1,0 +1,44 @@
+<div class="search-bar">
+  <%= form_with url: dashboards_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an workout"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div class="container">
+  <%if @search_workouts != nil && @search_workouts.empty?  %>
+    <h2 class="empty m-5 text-center">No Result Found.</h2>
+  <%else %>
+    <% if @category %>
+      <h1 class="text-center m-5"><%= @category.upcase %></h1>
+      <% if  @category_workouts.empty? %>
+        <h2 class="empty m-5 text-center">No Activity registered.</h2>
+      <%else %>
+        <div class="cards">
+          <% @category_workouts.each do |activity| %>
+            <%= link_to activity_path(activity) do %>
+              <%= render 'shared/card_activity', activity: activity %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if @query.present? && @search_workouts.any? %>
+    <h2 class="text-center m-5">Results for <%=@query %></h2>
+  <% else %>
+    <h2 class="text-center m-5">All WORKOUTS</h2>
+  <% end %>
+  <div class="cards">
+    <% @workouts.each do |workout| %>
+      <%= link_to workout_path(workout) do %>
+      <%= render 'shared/workout_card', workout: workout %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
