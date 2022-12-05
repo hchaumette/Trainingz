@@ -29,15 +29,11 @@
 </div>
 
   <div class="container">
-    <%= link_to root_path, class:"link-succes" do %>
-      <div class="button-succes">
-        Create
-      </div>
+    <%= simple_form_for @workout do |f| %>
+      <%= f.submit "Create", class:"button-succes" %>
     <% end %>
+
   </div>
 
-  <%= simple_form_for @workout do |f| %>
-    <%= f.submit "Create",class:"link-succes" %>
-  <% end %>
 
 <% end %>
