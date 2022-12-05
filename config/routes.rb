@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :coachings, only: %i[index create]
 
   get '/workouts/:id/created', to: "workouts#created", as: :created
+  get '/workouts/:id/send', to: "workouts#send", as: :send
 end

@@ -36,15 +36,17 @@ class WorkoutsController < ApplicationController
         end
       end
     end
-    @workout.duration = time
-    @workout.body_focus = body_part.join(',')
+    @workout.update(duration:time, body_focus:body_part.join(','))
+
     redirect_to created_path(@workout)
+
   end
 
   def created
     @workout = Workout.find(params[:id])
     @user = @workout.user
     @title = @workout.title
+    @workout.duration = @workout.duration / 60
   end
 
   def destroy
