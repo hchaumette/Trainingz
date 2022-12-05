@@ -16,7 +16,6 @@ class WorkoutExercisesController < ApplicationController
 
 
   def create
-    raise
     @round = Round.find(params[:round_id])
     @exercise = Exercise.find(params[:exercise_id])
     @workout_exercise = WorkoutExercise.new(duration: @exercise.duration)
@@ -24,4 +23,7 @@ class WorkoutExercisesController < ApplicationController
 
   end
 
+  def destroy
+
+  end
 end

@@ -24,6 +24,9 @@ class RoundsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def round_params
