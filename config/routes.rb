@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :dashboards, only: [:index]
+
   resources :rounds, only: :update do
     resources :workout_exercises
   end
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
     resources :rounds, only: [:create, :new]
     resources :user_workouts, only: :index
   end
+
+  resources :coachings, only: %i[index create]
 
   get '/workouts/:id/created', to: "workouts#created", as: :created
   get '/workouts/:id/send', to: "workouts#send", as: :send
