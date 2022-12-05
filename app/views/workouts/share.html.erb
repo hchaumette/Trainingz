@@ -7,7 +7,7 @@
     <div>
       <%= trainee.name %>
 
-      <%= simple_form_for [@workout,@user_workout], data:{ share_target: 'form', action:'click->share#send'} do |f| %>
+      <%= simple_form_for [@workout,@user_workout], data:{action:'click->share#send'} do |f| %>
         <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
         <%= f.submit "share"%>
       <% end %>
