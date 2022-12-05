@@ -4,5 +4,17 @@
 
 import { application } from "./application"
 
+import AddWorkoutController from "./add_workout_controller"
+application.register("add-workout", AddWorkoutController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import RoundController from "./round_controller"
+application.register("round", RoundController)
+
+import SelectExerciseController from "./select_exercise_controller"
+application.register("select-exercise", SelectExerciseController)
+
+import VerticalCarousselController from "./vertical_caroussel_controller"
+application.register("vertical-caroussel", VerticalCarousselController)

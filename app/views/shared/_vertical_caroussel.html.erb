@@ -1,0 +1,52 @@
+<div id="app" data-controller="vertical-caroussel">
+  <div class="bg-container">
+    <div class="bg-imgs">
+
+    <% @exercises.all.each do |exercice| %>
+      <div style='background-image: url(<%= exercice.demonstration%>);'
+        class="bgimg <%= "d-none" if exercice != @exercises.first %> " data-vertical-caroussel-target="allImgs">
+      </div>
+
+    <% end %>
+
+<%=  %>
+
+
+
+
+
+      <%# <div style='background-image: "";'
+        class="bgimg " data-vertical-caroussel-target="allImgs"></div>
+      <div style='background-image: url("http://placehold.jp/14/8f0869/003366/800x600.jpg");'
+        class="bgimg d-none" data-vertical-caroussel-target="allImgs"></div>
+      <div style='background-image: url("http://placehold.jp/14/0a8f30/003366/800x600.jpg");'
+        class="bgimg d-none" data-vertical-caroussel-target="allImgs"></div>
+      <div style='background-image: url("http://placehold.jp/14/8f8b0a/003366/800x600.jpg"); display: block;'
+        class="bgimg d-none" data-vertical-caroussel-target="allImgs"></div> %>
+    </div>
+  </div>
+
+  <div class="carousel-nav">
+    <div class="timer" data-action="click->vertical-caroussel#pauseTimer">
+      <svg width="60" height="60" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="29" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="182.212"
+          stroke-dashoffset="0"></circle>
+      </svg>
+      <% @exercises.all.each do |exercice| %>
+        <svg width="60" height="60">
+          <circle id="circle" cx="30" cy="30" r="28" fill="none" stroke="#ffffff" stroke-width="4"  data-time= "5" data-vertical-caroussel-target="circle"
+            style="stroke-dashoffset: 0px"></circle>
+        </svg>
+      <% end %>
+      <span class="play" id="timer-btn" data-vertical-caroussel-target="button"></span>
+    </div>
+    <ul class="dots">
+        <li data-vertical-caroussel-target="allDots" data-action="click->vertical-caroussel#moveStep" class="active"><span></span></li>
+
+      <% (@exercises.size - 1).times do  %>
+        <li data-vertical-caroussel-target="allDots" data-action="click->vertical-caroussel#moveStep" class="active"><span></span></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<%=  %>
