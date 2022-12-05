@@ -22,4 +22,5 @@ class WorkoutExercisesController < ApplicationController
       WorkoutExercise.create!(round: @round, exercise_id: exercise_id.to_i)
     end
   end
+
 end

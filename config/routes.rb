@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :workouts do
     resources :rounds, only: [:create, :new]
+    resources :user_workouts, only: :index
   end
 
   resources :coachings, only: %i[index create]

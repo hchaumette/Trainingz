@@ -42,7 +42,9 @@ class WorkoutsController < ApplicationController
   end
 
   def created
-
+    @workout = Workout.find(params[:id])
+    @user = @workout.user
+    @title = @workout.title
   end
 
   def destroy
