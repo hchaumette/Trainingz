@@ -1,0 +1,26 @@
+.big-button {
+  display:flex;
+  text-decoration: none;
+  background-color: $blue;
+  color: white;
+  border-radius: 16px;
+  height: 54px;
+  width: 300px;
+ justify-content: center;
+  align-items: center;
+  margin: 6px;
+}
+
+.button-height {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.selected-exercise i {
+  padding: 2px;
+  color: $green;
+  border-radius: 50%;
+  border: 1px solid $green;
+}

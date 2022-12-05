@@ -1,0 +1,18 @@
+.sticky-top {
+  position: sticky;
+  top: 0px;
+}
+.sticky-top h2 {
+  position: absolute;
+  top: 46px;
+  left: 24px;
+}
+.sticky-top-search {
+  position: sticky;
+  top: 15vh;
+}
+
+.sticky-bot {
+  position: sticky;
+  bottom: 0px;
+}

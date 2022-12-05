@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homebar">
+  <%= render 'shared/navbar' %>
+</div>
+<div class="home">
+  <div class="container" >
+    <h1>Welcome Hugo</h1>
+    <div class="quote">
+      <p>"Si tu détestes recommencer, arrête d'abandonner"</p>
+    </div>
+
+    <div class="display_workout">
+      <h2>Select your </h2>
+      <h2>session today</h2>
+      <div class="caroussel">
+        <%= render 'shared/workout_card' %>
+        <%= render 'shared/workout_card' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="nbar">
+  <%= render 'shared/nbar' %>
+</div>

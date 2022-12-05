@@ -1,0 +1,33 @@
+<% if @workout.rounds.empty? %>
+
+  <div class="new-container" >
+    <%= render 'shared/back_arrow', path:'root_path' %>
+    <h1 id="workout-creation-title"><%= @workout.title %></h1>
+    <div data-controller="add-workout">
+          <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+              <%= f.submit %>
+          <% end %>
+            <div class="d-flex align-items-center justify-content-center">
+          <div data-action="click->add-workout#send">
+          <%= render "shared/add_button"%>
+            </div>
+          </div>
+    </div>
+  </div>
+
+<% else  %>
+
+  <%= render "shared/top_bar_creation", workout: @workout %>
+
+<div class="m-3">
+
+    <% @workout.rounds.each do |round| %>
+
+      <%= render "shared/round", round: round %>
+
+    <% end %>
+</div>
+
+
+
+<% end %>
