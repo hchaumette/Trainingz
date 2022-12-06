@@ -16,6 +16,8 @@ application.register("round", RoundController)
 import SelectExerciseController from "./select_exercise_controller"
 application.register("select-exercise", SelectExerciseController)
 
+import SliderController from "./slider_controller"
+application.register("slider", SliderController)
 
 import VerticalCarousselController from "./vertical_caroussel_controller"
 application.register("vertical-caroussel", VerticalCarousselController)
