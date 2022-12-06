@@ -17,9 +17,21 @@
 
 <% else  %>
 
-  <%= render "shared/top_bar_creation", workout: @workout %>
+<div class="top_bar">
+  <div>
+    <%= link_to root_path do%>
+    <%= image_tag "back.png",alt: "back", width: 42%>
+    <% end %>
+  </div>
+  <h1>Workout</h1>
 
-<div class="m-3">
+  <div><%= image_tag "add.png", alt:"Add a round", width: 42%></div>
+</div>
+
+
+
+
+<div>
 
   <% @workout.rounds.each do |round| %>
 
