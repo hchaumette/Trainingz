@@ -13,25 +13,25 @@
   <%if @search_workouts != nil && @search_workouts.empty?  %>
     <h2 class="empty m-5 text-center">No Result Found.</h2>
   <%else %>
-    <% if @category %>
-      <h1 class="text-center m-5"><%= @category.upcase %></h1>
-      <% if  @category_workouts.empty? %>
-        <h2 class="empty m-5 text-center">No Activity registered.</h2>
+    <% if @duration %>
+      <h1 class="text-center m-5"><%= @duration.upcase %></h1>
+      <% if  @duration_workouts.empty? %>
+        <h2 class="empty m-5 text-center">No workout registered.</h2>
       <%else %>
         <div class="cards">
-          <% @category_workouts.each do |activity| %>
-            <%= link_to activity_path(activity) do %>
-              <%= render 'shared/card_activity', activity: activity %>
+          <% @duration_workouts.each do |workout| %>
+            <%= link_to workout_path(workout) do %>
+              <%= render 'shared/card_workout', workout: workout %>
             <% end %>
           <% end %>
         </div>
       <% end %>
     <% end %>
   <% end %>
-  <% if @query.present? && @search_workouts.any? %>
+  <% if @query.present? && @search_workouts != nil %>
     <h2 class="text-center m-5">Results for <%=@query %></h2>
   <% else %>
-    <h2 class="text-center m-5">All WORKOUTS</h2>
+    <h2 class="text-center m-5">YOUR WORKOUTS</h2>
   <% end %>
   <div class="cards">
     <% @workouts.each do |workout| %>

@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @exercises = Exercise.all
+    @durations = @exercises.map { |exercice| exercice.duration }
   end
 
   def edit
@@ -59,11 +60,23 @@ class WorkoutsController < ApplicationController
   end
 
   def index
+    @workouts = Workout.all
+
+    if params[:query].present?
+      @query = params[:query]
+      @search_workout = Workout.search_by(params[:query])
+      unless @search_workout.empty?
+        @workouts = @search_workout
+      end
+    else
+      @duration = params[:duration]
+      @duration_workout = @workouts.where(duration: @duration) if @duration
+    end
   end
 
   private
 
   def workout_params
-    params.require(:workout).permit(:title)
+    params.require(:workout).permit(:title, :duration)
   end
 end

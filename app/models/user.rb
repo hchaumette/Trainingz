@@ -10,8 +10,9 @@ class User < ApplicationRecord
   has_many :coachings_as_coach, class_name: :Coaching, foreign_key: :coach_id
   has_many :trainees, through: :coachings_as_coach, source: :trainee
 
-  has_many :notifications
 
-  has_many :workout
+  has_many :notifications
+  has_many :workouts
+  has_many :user_workouts
   has_many :coachings
 end
