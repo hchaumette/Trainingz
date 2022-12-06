@@ -24,12 +24,15 @@
     <% end %>
   </div>
   <h1>Workout</h1>
-
-  <div><%= image_tag "add.png", alt:"Add a round", width: 42%></div>
+  <div data-controller="add-workout">
+      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+          <%= f.submit %>
+      <% end %>
+      <div data-action="click->add-workout#send">
+        <%= image_tag "add.png", alt:"Add a round", width: 42 %>
+      <% end %>
+    </div>
 </div>
-
-
-
 
 <div>
 
@@ -37,22 +40,15 @@
 
     <%= render "shared/round", round: round %>
 
-    <div data-controller="add-workout">
-      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
-          <%= f.submit %>
-      <% end %>
-      <div class="big-button button-secondary" data-action="click->add-workout#send">
-        Add Round
-      </div>
-    </div>
-    <% end %>
+  <% end %>
 </div>
 
-  <div class="container">
+  <div class="bottom-btn-bg">
     <%= simple_form_for @workout do |f| %>
       <%= f.submit "Create", class:"button-succes" %>
     <% end %>
   </div>
-
+  <div class="bottom-space">
+  </div>
 
 <% end %>
