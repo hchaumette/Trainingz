@@ -1,15 +1,17 @@
+.total{
+  max-height: 100vh;
+}
+
 .home{
-  height: 100vh;
   position: relative;
-  h1{
-    margin-top: 6vh;
-  }
+
 }
 
 .quote{
   margin-top: 4vh;
   margin-bottom: 4vh;
   background-image: asset-url("quote.png");
+  background-size: cover ;
   height: 12vh;
   border-radius: 10px;
   display: flex;
@@ -25,8 +27,8 @@
 }
 
 .nbar{
-  position: sticky;
-  bottom: 4vh;
+  position: absolute;
+  bottom: 0;
   width: 100%;
 }
 .homebar{

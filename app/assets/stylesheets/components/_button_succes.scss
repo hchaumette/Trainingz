@@ -3,6 +3,7 @@
   height: 64px;
   color: white;
   background-color: $blue;
+  border: none;
   border-radius: 16px;
 
   display: flex;
@@ -13,8 +14,4 @@
 
   position: fixed;
   bottom: 16px;
-}
-
-.link-succes:hover{
-  text-decoration: none;
 }

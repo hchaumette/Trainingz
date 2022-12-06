@@ -15,10 +15,8 @@ UserWorkout.destroy_all
 puts "workout"
 Workout.destroy_all
 puts "user"
-User.destroy_all
-puts "Done"
 
-Exercise.destroy_all
+url = URI("https://exercisedb.p.rapidapi.com/exercises")
 
 puts "Create 4 users"
 user1 = User.create(email: "jean@wagon.org", password: "password", coach: true)
@@ -34,8 +32,6 @@ round1 = Round.create(name: "Premier", workout: workout1)
 puts "Done"
 WorkoutExercise.create(round: round1, exercise: Exercise.last)
 
-url = URI("https://exercisedb.p.rapidapi.com/exercises")
-
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -48,6 +44,8 @@ response = http.request(request)
 
 exercises = JSON.parse(response.read_body)
 
+puts "Create 9 Exercises"
+
 exercises.first(9).each do |exercise|
   durations = [12, 24, 32, 11, 10, 90]
   Exercise.create!(
@@ -59,11 +57,31 @@ exercises.first(9).each do |exercise|
   )
 end
 
-# t.integer "duration"
-# t.integer "rest_time"
-# t.integer "repetitions"
-# t.string "demonstration"
-# t.string "title"
-# t.string "equipment"
-# t.datetime "created_at", null: false
-# t.datetime "updated_at", null: false
+puts "Done"
+
+
+
+
+puts "Create 4 users"
+user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe")
+user2 = User.create(email: "julien@wagon.org", password: "password", name: "lucas")
+user3 = User.create(email: "etienne@mail.com", password: "password", coach: true, name: "théo")
+user4 = User.create(email: "hugo@mail.com", password: "000000", name: "hugo", coach: true)
+User.create(email: "frederic@gmal.fr", password: "password", name: "Maxence")
+puts "Done"
+
+
+
+puts "Create 4 workouts"
+workout1 = Workout.create(title: "Workout 1", user_id: user4)
+puts "Done"
+
+
+
+
+puts "Create 4 rounds "
+round1 = Round.create(name: "Premier", workout_id: workout1)
+puts "Done"
+
+
+WorkoutExercise.create(round_id: round1, exercise: Exercise.last)
