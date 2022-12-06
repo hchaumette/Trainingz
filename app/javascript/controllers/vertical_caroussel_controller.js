@@ -6,7 +6,9 @@ import { gsap } from "gsap";
 export default class extends Controller {
   static targets = ["circle", "button", "allImgs", "allDots"]
   connect() {
+
     this.durations = JSON.parse(this.circleTarget.dataset.time)
+
     this.currentStepValue = 0;
     this.tlValue = gsap.timeline();
     // this.intervalTimer;

@@ -16,21 +16,11 @@ puts "workout"
 Workout.destroy_all
 puts "user"
 
-url = URI("https://exercisedb.p.rapidapi.com/exercises")
+User.destroy_all
+puts "Done"
 
-puts "Create 4 users"
-user1 = User.create(email: "jean@wagon.org", password: "password", coach: true)
-user2 = User.create(email: "julien@wagon.org", password: "password")
-user3 = User.create(email: "etienne@mail.com", password: "password", coach: true)
-user4 = User.create(email: "frederic@gmail.fr", password: "password")
-puts "Done"
-puts "Create 4 workouts"
-workout1 = Workout.create(title: "Workout 1", user: user1)
-puts "Done"
-puts "Create 4 rounds "
-round1 = Round.create(name: "Premier", workout: workout1)
-puts "Done"
-WorkoutExercise.create(round: round1, exercise: Exercise.last)
+
+url = URI("https://exercisedb.p.rapidapi.com/exercises")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
