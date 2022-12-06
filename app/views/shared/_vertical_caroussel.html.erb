@@ -13,7 +13,7 @@
   </div>
   -->
 
-  <div class=" w-100">
+  <div >
     <% @exercises.each do |exercice| %>
       <%= image_tag exercice.demonstration, class: exercice != @exercises.first ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
     <% end %>  </div>
@@ -60,4 +60,3 @@
   </div>
 
 </div>
-<% console %>
