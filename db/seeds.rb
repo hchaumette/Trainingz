@@ -15,7 +15,8 @@ UserWorkout.destroy_all
 puts "workout"
 Workout.destroy_all
 puts "user"
-
+Coaching.destroy_all
+Notification.destroy_all
 User.destroy_all
 puts "Done"
 
@@ -37,13 +38,11 @@ exercises = JSON.parse(response.read_body)
 puts "Create 9 Exercises"
 
 exercises.first(9).each do |exercise|
-  durations = [12, 24, 32, 11, 10, 90]
   Exercise.create!(
     title: exercise["name"],
     equipment: exercise["equipment"],
     demonstration: exercise["gifUrl"],
     body_part: exercise["bodyPart"],
-    duration: durations.sample
   )
 end
 
@@ -65,9 +64,6 @@ puts "Done"
 puts "Create 4 workouts"
 workout1 = Workout.create(title: "Workout 1", user_id: user4)
 puts "Done"
-
-
-
 
 puts "Create 4 rounds "
 round1 = Round.create(name: "Premier", workout_id: workout1)
