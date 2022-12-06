@@ -1,7 +1,27 @@
 .top_bar{
   height: 90px;
-  position: relative;
+  background-color: white;
+  padding: 24px 24px;
+  text-align: center;
+  >div{
+    align-items: center;
+    display: flex;
+  }
+
+  h2{
+    justify-self: center;
+  }
+}
+
+.top-bar-workout{
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.margin-search-bar{
+  margin-top: 12px;
+}
+
+.title-center{
+  margin-left: 48px;
 }
