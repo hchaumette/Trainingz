@@ -4,14 +4,14 @@
     <%= render 'shared/back_arrow', path:'root_path' %>
     <h1 id="workout-creation-title"><%= @workout.title %></h1>
     <div data-controller="add-workout">
-          <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
-              <%= f.submit %>
-          <% end %>
-            <div class="d-flex align-items-center justify-content-center">
+      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+          <%= f.submit %>
+      <% end %>
+        <div class="d-flex align-items-center justify-content-center">
           <div data-action="click->add-workout#send">
-          <%= render "shared/add_button"%>
-            </div>
+            <%= render "shared/add_button"%>
           </div>
+        </div>
     </div>
   </div>
 
@@ -20,17 +20,16 @@
 <div class="top_bar">
   <div>
     <%= link_to root_path do%>
-    <%= image_tag "back.png",alt: "back", width: 42%>
+      <%= image_tag "back.png",alt: "back", width: 42%>
     <% end %>
   </div>
   <h1>Workout</h1>
   <div data-controller="add-workout">
-      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
-          <%= f.submit %>
-      <% end %>
-      <div data-action="click->add-workout#send">
+    <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+      <%= f.submit %>
+    <% end %>
+    <div data-action="click->add-workout#send">
         <%= image_tag "add.png", alt:"Add a round", width: 42 %>
-      <% end %>
     </div>
 </div>
 
