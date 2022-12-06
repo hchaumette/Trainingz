@@ -17,7 +17,8 @@ Workout.destroy_all
 Coaching.destroy_all
 Notification.destroy_all
 puts "user"
-
+Coaching.destroy_all
+Notification.destroy_all
 User.destroy_all
 puts "Done"
 
@@ -62,9 +63,6 @@ puts "Done"
 puts "Create 4 workouts"
 workout1 = Workout.create(title: "Workout 1", user_id: user4)
 puts "Done"
-
-
-
 
 puts "Create 4 rounds "
 round1 = Round.create(name: "Premier", workout_id: workout1)

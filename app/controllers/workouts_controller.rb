@@ -48,6 +48,7 @@ class WorkoutsController < ApplicationController
     @user = @workout.user
     @title = @workout.title
     @workout.duration = @workout.duration / 60
+    @body_focus = @workout.body_focus.split(',')
   end
 
   def share
