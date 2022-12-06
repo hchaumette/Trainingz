@@ -21,10 +21,18 @@
 
 <div class="m-3">
 
-    <% @workout.rounds.each do |round| %>
+  <% @workout.rounds.each do |round| %>
 
-      <%= render "shared/round", round: round %>
+    <%= render "shared/round", round: round %>
 
+    <div data-controller="add-workout">
+      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+          <%= f.submit %>
+      <% end %>
+      <div class="big-button button-secondary" data-action="click->add-workout#send">
+        Add Round
+      </div>
+    </div>
     <% end %>
 </div>
 
@@ -32,7 +40,6 @@
     <%= simple_form_for @workout do |f| %>
       <%= f.submit "Create", class:"button-succes" %>
     <% end %>
-
   </div>
 
 

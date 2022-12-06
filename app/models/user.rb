@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :trainees, through: :coachings_as_coach, source: :trainee
 
 
-  has_many :workout
+  has_many :notifications
+  has_many :workouts
+  has_many :user_workouts
   has_many :coachings
 end
