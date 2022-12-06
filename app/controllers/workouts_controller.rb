@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @exercises = Exercise.all
+    @durations = @exercises.map { |exercice| exercice.duration }
   end
 
   def edit
@@ -49,6 +50,12 @@ class WorkoutsController < ApplicationController
     @workout.duration = @workout.duration / 60
   end
 
+  def share
+    @workout = Workout.find(params[:id])
+    @user_workout = UserWorkout.new
+    @trainees = current_user.trainees
+  end
+
   def destroy
   end
 
@@ -70,6 +77,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:title)
+    params.require(:workout).permit(:title, :duration)
   end
 end

@@ -1,14 +1,12 @@
 <div data-controller="round">
+ <div class="round-bar">
   <div class="d-flex justify-content-between">
     <div class="title-decoration">
       <h2><%= round.name %></h2>
-      <%= image_tag "Vector", width: 96 %>
     </div>
     <input type="number" class="round-input" data-round-target="sets" data-action="blur->round#sendSets" value="<%= round.sets%>" >
     <p>sets</p>
   </div>
-
-
 
   <div class="d-flex justify-content-between">
     <input type="number" class="round-input" data-round-target="rest" data-action="blur->round#sendRest" value="<%= round.exercises_rest%>" >
@@ -18,6 +16,7 @@
     <input type="number" class="round-input" data-round-target="reps" data-action="blur->round#sendReps" value="<%= round.exercises_reps%>">
     <p>reps</p>
   </div>
+ </div>
 
 
   <div class="d-none">
@@ -40,7 +39,7 @@
           <p><strong><%= workout_exercise.exercise.title %></strong></p>
           <p><em><%= workout_exercise.duration %></em></p>
         </div>
-        <%= image_tag "arrow_open", width: 8, height: 16 %>
+        <%= image_tag "arrow_open.png", width: 8, height: 16 %>
       </div>
     <% end %>
   </div>
