@@ -4,7 +4,9 @@
 
 .home{
   position: relative;
-
+  h1{
+    margin-top: 4vh;
+  }
 }
 
 .quote{
@@ -12,12 +14,12 @@
   margin-bottom: 4vh;
   background-image: asset-url("quote.png");
   background-size: cover ;
-  height: 12vh;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: end;
   text-align: center;
+  height: 12vh;
 }
 
 .caroussel{
@@ -35,6 +37,4 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  height: fit-content;
-
 }

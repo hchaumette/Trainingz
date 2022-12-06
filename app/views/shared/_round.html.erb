@@ -1,23 +1,34 @@
 <div data-controller="round">
-  <div class="d-flex justify-content-between">
-    <div class="title-decoration">
-      <h2><%= round.name %></h2>
-      <%= image_tag "Vector.png", width: 96 %>
+ <div class="round-bar">
+  <div >
+    <div>
+      <strong><%= round.name %></strong>
     </div>
-    <input type="number" class="round-input" data-round-target="sets" data-action="blur->round#sendSets" value="<%= round.sets%>" >
-    <p>sets</p>
+
+    <div class="d-flex align-items-center ">
+      <input type="number" class="round-input round-top-input" data-round-target="sets" data-action="blur->round#sendSets" value="<%= round.sets%>" >
+      <div><em>rounds</em></div>
+
+    </div>
   </div>
 
-
-
-  <div class="d-flex justify-content-between">
-    <input type="number" class="round-input" data-round-target="rest" data-action="blur->round#sendRest" value="<%= round.exercises_rest%>" >
-    <p>rest</p>
-    <input type="number" class="round-input" data-round-target="extime" data-action="blur->round#sendExtime" value="<%= round.exercises_time%>">
-    <p>sec/ex</p>
-    <input type="number" class="round-input" data-round-target="reps" data-action="blur->round#sendReps" value="<%= round.exercises_reps%>">
-    <p>reps</p>
+  <div class="d-flex mt-2">
+    <div class= "flex-column right-border">
+      <input type="number" class="round-input" data-round-target="rest" data-action="blur->round#sendRest" value="<%= round.exercises_rest%>" >
+      <div>
+        <em>rest</em>
+      </div>
+    </div>
+    <div class= "flex-column right-border">
+      <input type="number" class="round-input" data-round-target="reps" data-action="blur->round#sendReps" value="<%= round.exercises_reps%>">
+      <div><em>reps/ex</em></div>
+    </div>
+    <div class= "flex-column">
+      <input type="number" class="round-input" data-round-target="extime" data-action="blur->round#sendExtime" value="<%= round.exercises_time%>">
+      <div><em>time/ex</em></div>
+    </div>
   </div>
+ </div>
 
 
   <div class="d-none">
@@ -29,20 +40,27 @@
       <%= f.submit %>
     <% end %>
   </div>
-  <div>
+  <div class="round-exercises-container">
     <% round.workout_exercises.each do |workout_exercise| %>
-      <div class="d-flex justify-content-between align-items-center">
-        <%= image_tag workout_exercise.exercise.demonstration , width: 40%>
+      <div class="round-exercise-card">
+        <div><%= image_tag workout_exercise.exercise.demonstration , width: 54%></div>
         <div>
-          <%= workout_exercise.repetitions %>X
+          <strong><%= workout_exercise.repetitions %>X</strong>
         </div>
         <div>
-          <p><strong><%= workout_exercise.exercise.title %></strong></p>
-          <p><em><%= workout_exercise.duration %></em></p>
+          <strong><%= workout_exercise.exercise.title %></strong><br>
+          <em><%= workout_exercise.duration %></em>
         </div>
-        <%= image_tag "arrow_open.png", width: 8, height: 16 %>
+        <div class="exercise-arrow"><%= image_tag "arrow_open.png", width: 8, height: 16 %></div>
       </div>
     <% end %>
-  </div>
 
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to round_workout_exercises_path(round) do%>
+          <div class="big-button button-secondary">
+            Add exercises
+        </div>
+    <% end %>
+  </div>
 </div>
