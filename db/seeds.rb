@@ -14,6 +14,8 @@ puts"user workout"
 UserWorkout.destroy_all
 puts "workout"
 Workout.destroy_all
+Coaching.destroy_all
+Notification.destroy_all
 puts "user"
 
 User.destroy_all
@@ -36,22 +38,17 @@ exercises = JSON.parse(response.read_body)
 
 puts "Create 9 Exercises"
 
+
 exercises.first(9).each do |exercise|
-  durations = [12, 24, 32, 11, 10, 90]
   Exercise.create!(
     title: exercise["name"],
     equipment: exercise["equipment"],
     demonstration: exercise["gifUrl"],
-    body_part: exercise["bodyPart"],
-    duration: durations.sample
+    body_part: exercise["bodyPart"]
   )
 end
 
 puts "Done"
-
-
-
-
 puts "Create 4 users"
 user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe")
 user2 = User.create(email: "julien@wagon.org", password: "password", name: "lucas")
