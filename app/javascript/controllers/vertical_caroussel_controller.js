@@ -6,18 +6,19 @@ import { gsap } from "gsap";
 export default class extends Controller {
   static targets = ["circle", "button", "allImgs", "allDots"]
   connect() {
+    this.durations = JSON.parse(this.circleTarget.dataset.time)
     this.currentStepValue = 0;
     this.tlValue = gsap.timeline();
-    this.intervalTimer;
-    this.timeLeft;
+    // this.intervalTimer;
+    // this.timeLeft;
     this.wholeTimeValue = 8;
     this.isPausedValue = false;
     this.isStartedValue = false;
     this.radiusValue = 28;
     this.initialOffsetValue = Math.PI * 2 * this.radiusValue;
-
+    console.log(this.timeLeft)
     if (this.circleTarget) {
-      this.wholeTimeValue = parseInt(this.circleTarget.dataset.time, 10);
+      this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
       this.animateTimer();
       this.pauseTimer();
     }
@@ -51,11 +52,14 @@ export default class extends Controller {
   }
 
   moveStep(event) {
+    console.log("hello")
     const ul = event.currentTarget.parentElement;
     const nodes = Array.from( ul.children );
     const btnIndex = nodes.indexOf( event.currentTarget );
 
     this.currentStepValue = btnIndex;
+    this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
+
     this.changeBackground();
     clearInterval(this.intervalTimer);
     this.isStartedValue = false;
@@ -76,12 +80,13 @@ export default class extends Controller {
   nextStep() {
     this.timeLeft = ((this.remainTime - Date.now()) / 1000).toFixed(2);
     if (this.timeLeft <= 0) {
-      this.tlValue.restart();
       clearInterval(this.intervalTimer);
       this.isStartedValue = false;
       this.currentStepValue = this.currentStepValue + 1 < this.allImgsTargets.length ? this.currentStepValue + 1 : 0;
+      this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
       this.pauseTimer();
       this.changeBackground();
+      this.animateTimer()
       return;
     }
   }
