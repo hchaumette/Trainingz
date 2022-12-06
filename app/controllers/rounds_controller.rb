@@ -1,7 +1,8 @@
 class RoundsController < ApplicationController
   def create
     @workout = Workout.find(params[:workout_id])
-    @round = Round.new()
+    name = "Round #{@workout.rounds.count + 1}"
+    @round = Round.new(name:name)
     @round.workout = @workout
     @round.save
     redirect_to round_workout_exercises_path(@round)

@@ -1,13 +1,9 @@
 class UserWorkoutsController < ApplicationController
-
-  def index
-
-  end
-
   def create
     @user_workout = UserWorkout.new(user_workout_params)
     @user_workout.workout = Workout.find(params[:workout_id])
     @user_workout.save
+    Notification.create!(user: @user_workout.user)
   end
 
   private
