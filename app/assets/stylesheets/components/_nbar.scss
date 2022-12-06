@@ -1,8 +1,24 @@
 .element {
   text-decoration: none;
   color: black;
+  width: 6vh;
+  height: 6vh;
+  background-color: white;
+  border-radius: 50%;
+
+  :hover{
+    background-color: #FFE9CA;
+  }
+}
+
+.ico{
+  width: 4vh;
+  height: 4vh;
+  margin-top: 1vh;
 }
 
 .navbar{
   height: 8vh;
+  border-top: 1px solid lightgray ;
+  background-color: white;
 }

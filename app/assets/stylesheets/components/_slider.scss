@@ -1,0 +1,34 @@
+
+
+.slider::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+
+// Styling
+.slider {
+	background: white;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  body{
+    align-items: center;
+    background: #E3E3E3;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+
+	.slide-track{
+		display: flex;
+	}
+
+  .slide{
+    margin-right: 2vh;
+  }
+}
