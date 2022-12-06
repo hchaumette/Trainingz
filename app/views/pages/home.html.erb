@@ -1,23 +1,30 @@
-<div class="homebar">
-  <%= render 'shared/navbar' %>
-</div>
-<div class="home">
-  <div class="container" >
-    <h1>Welcome Hugo</h1>
-    <div class="quote">
-      <p>"Si tu détestes recommencer, arrête d'abandonner"</p>
-    </div>
+<div class="total">
+  <div class="homebar">
+    <%= render 'shared/navbar' %>
+  </div>
+  <div class="home">
+    <div class="container" >
+      <h1>Welcome Hugo</h1>
+      <div class="quote">
+        <p>"Si tu détestes recommencer, arrête d'abandonner"</p>
+      </div>
 
-    <div class="display_workout">
-      <h2>Select your </h2>
-      <h2>session today</h2>
+      <div class="display_workout">
+        <h2>Select your </h2>
+        <h2>session today</h2>
+      </div>
+
       <div class="caroussel">
-        <%= render 'shared/workout_card' %>
-        <%= render 'shared/workout_card' %>
+        <%= link_to workout_path(7), class:"element" do %>
+          <%= render 'shared/workout_card' %>
+        <% end %>
+        <%= link_to workout_path(8), class:"element" do %>
+          <%= render 'shared/workout_card' %>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-<div class="nbar">
-  <%= render 'shared/nbar' %>
+  <div class="nbar">
+    <%= render 'shared/nbar' %>
+  </div>
 </div>

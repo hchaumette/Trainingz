@@ -1,0 +1,47 @@
+<h1>My Coachings</h1>
+
+<div class="margin-search-bar sticky-top-search">
+      <%= form_with url: coachings_path, method: :get, class: "search-bar-exercise" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "search-bar-exercise",
+          placeholder: "Search"
+        %>
+        <%= submit_tag "Search", class: "d-none" %>
+      <% end %>
+</div>
+
+<% if current_user.coach %>
+
+  <% @coachings.each do |coaching| %>
+    <%= coaching.trainee.name %>
+  <% end %>
+
+    <% @users.each do |user| %>
+    <div class="d-flex justify-content-around align-items-center mt-5">
+      <%= user.name %>
+      <%= simple_form_for @coaching do |f| %>
+        <%= f.input :trainee,input_html:{value: user.id, class:"d-none"}, label_html:{class:"d-none"} %>
+        <%= f.submit "add" %>
+      <% end %>
+    </div>
+    <% end %>
+
+<% else %>
+
+<% @coachings.each do |coaching| %>
+  <%= coaching.coach.name %>
+<% end %>
+
+  <% @users.each do |user| %>
+    <div class="d-flex justify-content-around align-items-center mt-5">
+      <%= user.name %>
+      <%= simple_form_for @coaching do |f| %>
+        <%= f.input :coach, input_html:{value: user.id, class:"d-none"}, label_html:{class:"d-none"} %>
+        <%= f.submit "add" %>
+      <% end %>
+    </div>
+    <% end %>
+
+
+<% end %>
