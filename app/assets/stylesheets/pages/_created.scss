@@ -1,0 +1,66 @@
+.created-container {
+padding: 25px;
+height: 100vh;
+}
+
+.created-header h1 {
+  font-family: 'Roobert';
+  color: black;
+}
+
+.created-box-container {
+  display: flex;
+  justify-content: space-between;
+}
+.created-a-determiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 180px;
+  border-radius: 12px;
+  background-color: $blue-bis;
+  color: $blue;
+}
+
+.created-timer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 180px;
+  border-radius: 12px;
+  background-color: $orange;
+  color: $blue;
+}
+
+.created-focus {
+  height: 200px;
+  border: 1px solid $blue;
+  margin: 20px auto;
+  padding: 12px;
+  border-radius: 12px;
+}
+.created-focus h5 {
+  font-family: 'Roobert';
+}
+.focus-array {
+  display: flex;
+  flex-wrap: wrap;
+  width: 150%;
+}
+.focus-element {
+  background-color: $orange;
+  color: $blue;
+  padding: 8px 12px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+}
+
+
+.created-button {
+
+}

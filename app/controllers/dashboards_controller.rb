@@ -10,7 +10,7 @@ class DashboardsController < ApplicationController
 
     if params[:query].present?
       @query = params[:query]
-      @search_workouts = Workout.search_by_title(params[:query])
+      @search_workouts = Workout.search_by(params[:query])
       unless @search_workouts.empty?
         @workouts = @search_workouts
       end

@@ -1,9 +1,70 @@
 .round-input{
-  width: 25%;
-  height: 40px;
+  width: 63px;
+  height: 26px;
   text-align: center;
   border: none;
   background-color: $light-gray;
   border-radius: 4px;
-  margin: 8px;
+  -webkit-appearance: textfield;
+  font-weight: bold;
+}
+
+.round-bar{
+  background-color: $orange;
+  padding: 16px 24px;
+  padding-bottom: 8px;
+  div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.round-top-input{
+  width: 40px;
+}
+
+.right-border{
+  border-right: 1px solid $yellow;
+  padding-right: 20px ;
+}
+
+.round-exercises-container{
+  margin: 0 24px;
+  em{
+    font-size: 14px;
+    color: $dark-gray;
+    font-weight: 500;
+    font-style: normal;
+  }
+}
+
+.round-exercise-card{
+  height: 72px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $mediume-gray;
+
+  > div{
+    margin-right: 16px;
+  }
+
+  .exercise-arrow{
+    margin-left: auto;
+  }
+}
+
+.bottom-btn-bg{
+  width: 100%;
+  background-color: white;
+  height: 90px;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-space{
+  height: 90px;
 }

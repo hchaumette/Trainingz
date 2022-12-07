@@ -1,9 +1,12 @@
 <div class="new-container">
   <%= render 'shared/back_arrow', path:'root_path' %>
-  <div class="d-flex justify-content-center align-items-center h-100">
+  <div>
+  </div>
+  <div class="form-container">
+  <h1>Workout's name</h1>
     <%= simple_form_for @workout do |f| %>
-      <%= f.input :title,as: :text, label: false, input_html: {class:"form-new", placeholder: "WRITE YOUR WORKOUT NAME"} %>
-      <%= f.submit "create"%>
+      <%= f.input :title, label: false, input_html: {class:"form-new"} %>
+      <%= f.submit "create", class:"submit-new-button"%>
     <% end %>
   </div>
 

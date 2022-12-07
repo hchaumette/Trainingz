@@ -2,16 +2,12 @@
   position: sticky;
   top: 0px;
 }
-.sticky-top h2 {
-  position: absolute;
-  top: 46px;
-  left: 24px;
-}
-.sticky-top-search {
-  position: sticky;
-  top: 15vh;
-}
 
+.sticky-top-search {
+  background-color: white;
+  position: sticky;
+  top: 0;
+}
 .sticky-bot {
   position: sticky;
   bottom: 0px;

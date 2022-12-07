@@ -11,12 +11,12 @@ Rails.application.routes.draw do
     resources :workout_exercises
   end
   resources :workouts do
-    resources :rounds, only: [:create, :new]
-    resources :user_workouts, only: :index
+    resources :rounds, only: %i[create new]
+    resources :user_workouts, only: %i[index create]
   end
 
   resources :coachings, only: %i[index create]
 
   get '/workouts/:id/created', to: "workouts#created", as: :created
-  get '/workouts/:id/send', to: "workouts#send", as: :send
+  get '/workouts/:id/share', to: "workouts#share", as: :share
 end

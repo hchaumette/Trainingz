@@ -14,3 +14,11 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+
+  // font-family: 'DM Sans', sans-serif;
+
+@font-face {
+  font-family: "Roobert";
+  src: url(/app/assets/fonts/Roobert/Roobert-Bold.otf) format("truetype");
+}

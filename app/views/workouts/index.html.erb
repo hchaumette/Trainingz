@@ -1,8 +1,11 @@
-<div class="index-container">
+<div class="top-dash">
   <%= render 'shared/back_arrow', path:'root_path' %>
-  <div class="top">
     <h1>WORKOUTS</h1>
-    <div class="search-bar">
+    <p>     frrrr</p>
+</div>
+
+
+   <div class="search-bar">
       <%= form_with url: workouts_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
         params[:query],
@@ -22,6 +25,7 @@
         <% if  @duration_workout.empty? %>
           <h2 class="empty m-5 text-center">No workout registered.</h2>
         <%else %>
+        <div class="dash-container">
           <div class="cards">
             <% @duration_workout.each do |workout| %>
               <%= link_to workout_path(workout) do %>
@@ -29,6 +33,7 @@
               <% end %>
             <% end %>
           </div>
+        </div>
         <% end %>
       <% end %>
     <% end %>
@@ -37,17 +42,20 @@
     <% else %>
       <h2 class="text-center m-5">All WORKOUTS</h2>
     <% end %>
-    <div class="cards w-25 d-inline-flex">
-      <% @workouts.each do |workout| %>
-        <%= link_to workout_path(workout) do %>
-        <%= render 'shared/workout_card', workout: workout %>
+    <div class="dash-container">
+      <div class="cards">
+        <% @workouts.each do |workout| %>
+          <%= link_to workout_path(workout) do %>
+          <%= render 'shared/workout_card', workout: workout %>
+          <% end %>
         <% end %>
-      <% end %>
-
+      </div>
     </div>
   </div>
 
 
     </div>
   </div>
-</div>
+<div class="nbar">
+      <%= render 'shared/nbar' %>
+  </div>

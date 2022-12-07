@@ -29,7 +29,6 @@ export default class extends Controller {
   update(event){
     event.preventDefault();
     const url = this.formTarget.action ;
-    console.log(url);
     fetch(url, {
       method: "PATCH",
       headers: { "Accept": "text/plain" },
@@ -37,7 +36,7 @@ export default class extends Controller {
     })
       .then(response => response.text())
       .then((data) => {
-
+        console.log(data);
       })
     }
 }
