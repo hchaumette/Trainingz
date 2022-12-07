@@ -4,43 +4,57 @@
     <%= render 'shared/back_arrow', path:'root_path' %>
     <h1 id="workout-creation-title"><%= @workout.title %></h1>
     <div data-controller="add-workout">
+<<<<<<< HEAD
           <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
               <%= f.submit %>
           <% end %>
             <div class="me-4 ms-4">
+=======
+      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+          <%= f.submit %>
+      <% end %>
+        <div class="d-flex align-items-center justify-content-center">
+>>>>>>> ef5e7afe2dc6dd925319ecfeb0b0bd9963b0839b
           <div data-action="click->add-workout#send">
-          <%= render "shared/add_button"%>
-            </div>
+            <%= render "shared/add_button"%>
           </div>
+        </div>
     </div>
   </div>
 
 <% else  %>
 
-  <%= render "shared/top_bar_creation", workout: @workout %>
+<div class="top_bar">
+  <div>
+    <%= link_to root_path do%>
+      <%= image_tag "back.png",alt: "back", width: 42%>
+    <% end %>
+  </div>
+  <h1>Workout</h1>
+  <div data-controller="add-workout">
+    <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
+      <%= f.submit %>
+    <% end %>
+    <div data-action="click->add-workout#send">
+        <%= image_tag "add.png", alt:"Add a round", width: 42 %>
+    </div>
+</div>
 
-<div class="m-3">
+<div>
 
   <% @workout.rounds.each do |round| %>
 
     <%= render "shared/round", round: round %>
 
-    <div data-controller="add-workout">
-      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
-          <%= f.submit %>
-      <% end %>
-      <div class="big-button button-secondary" data-action="click->add-workout#send">
-        Add Round
-      </div>
-    </div>
-    <% end %>
+  <% end %>
 </div>
 
-  <div class="container">
+  <div class="bottom-btn-bg">
     <%= simple_form_for @workout do |f| %>
       <%= f.submit "Create", class:"button-succes" %>
     <% end %>
   </div>
-
+  <div class="bottom-space">
+  </div>
 
 <% end %>
