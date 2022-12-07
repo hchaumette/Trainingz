@@ -1,9 +1,9 @@
-<div class="top-dash">
-  <%= render 'shared/back_arrow', path:'root_path' %>
-    <h1>WORKOUTS</h1>
-    <p>     frrrr</p>
-</div>
-
+<div class="workout_page">
+  <div class="top-dash">
+    <%= render 'shared/back_arrow', path:'root_path' %>
+      <h1>WORKOUTS</h1>
+      <p>     frrrr</p>
+  </div>
 
    <div class="search-bar">
       <%= form_with url: workouts_path, method: :get, class: "d-flex" do %>
@@ -14,48 +14,60 @@
       %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
-  </div>
+    </div>
 
-  <div class="container">
-    <%if @search_workout != nil && @search_workout.empty?  %>
-      <h2 class="empty m-5 text-center">No Result Found.</h2>
-    <%else %>
-      <% if @duration %>
-        <h1 class="text-center m-5"><%= @duration.upcase %></h1>
-        <% if  @duration_workout.empty? %>
-          <h2 class="empty m-5 text-center">No workout registered.</h2>
-        <%else %>
-        <div class="dash-container">
-          <div class="cards">
-            <% @duration_workout.each do |workout| %>
-              <%= link_to workout_path(workout) do %>
-                <%= render 'shared/card_workout', workout: workout %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-    <% end %>
-    <% if @query.present? && @search_workout != nil %>
-      <h2 class="text-center m-5">Results for <%=@query %></h2>
-    <% else %>
-      <h2 class="text-center m-5">All WORKOUTS</h2>
-    <% end %>
-    <div class="dash-container">
+
+<% if @query.present? && @search_workout != nil %>
+    <h2 class="text-center m-5">Results for <%=@query %></h2>
       <div class="cards">
-        <% @workouts.each do |workout| %>
+        <% @search_workout.each do |workout| %>
           <%= link_to workout_path(workout) do %>
-          <%= render 'shared/workout_card', workout: workout %>
+          <%= render 'shared/workout_card', workout: workout%>
           <% end %>
         <% end %>
       </div>
     </div>
-  </div>
 
-
+  <% else %>
+    <h2 class="text-center m-5">ALL WORKOUTS</h2>
+    <div class="dash-container">
+      <div class="cards">
+        <% @workouts.each do |workout| %>
+          <%= link_to workout_path(workout) do %>
+          <%= render 'shared/workout_card', workout: workout%>
+          <% end %>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+
+
+
+<div class="container">
+  <%if @search_workout != nil && @search_workout.empty?  %>
+    <h2 class="empty m-5 text-center">No Result Found.</h2>
+
+  <%else %>
+    <% if @duration %>
+      <h1 class="text-center m-5"><%= @duration.upcase %></h1>
+      <% if  @duration_workout.empty? %>
+        <h2 class="empty m-5 text-center">No workout registered.</h2>
+      <%else %>
+        <div class="cards">
+          <% @duration_workout.each do |workout| %>
+            <%= link_to workout_path(workout) do %>
+              <%= render 'shared/workout_card', workout: workout %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
   </div>
-<div class="nbar">
-      <%= render 'shared/nbar' %>
+
+
+</div>
+  <div class="nbar">
+    <%= render 'shared/nbar' %>
   </div>
