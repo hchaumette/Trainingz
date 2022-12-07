@@ -4,21 +4,14 @@
     <%= render 'shared/back_arrow', path:'root_path' %>
     <h1 id="workout-creation-title"><%= @workout.title %></h1>
     <div data-controller="add-workout">
-<<<<<<< HEAD
           <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
               <%= f.submit %>
           <% end %>
             <div class="me-4 ms-4">
-=======
-      <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
-          <%= f.submit %>
-      <% end %>
-        <div class="d-flex align-items-center justify-content-center">
->>>>>>> ef5e7afe2dc6dd925319ecfeb0b0bd9963b0839b
-          <div data-action="click->add-workout#send">
-            <%= render "shared/add_button"%>
-          </div>
-        </div>
+              <div data-action="click->add-workout#send">
+              <%= render "shared/add_button"%>
+              </div>
+            </div>
     </div>
   </div>
 
@@ -38,7 +31,7 @@
     <div data-action="click->add-workout#send">
       <%= image_tag "add.png", alt:"Add a round", width: 42 %>
     </div>
-  </div>
+    </div>
 </div>
 
 <div>

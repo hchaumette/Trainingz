@@ -63,6 +63,7 @@ class WorkoutsController < ApplicationController
     @trainees = current_user.trainees
     @user = @workout.user
     @title = @workout.title
+    @avatar = @user.avatar
   end
 
   def destroy

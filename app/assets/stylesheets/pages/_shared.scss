@@ -1,0 +1,31 @@
+.shared-trainee-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-between;
+  padding: 2px;
+  border-bottom: 1px solid rgba(163, 163, 163, 0.261);
+}
+.shared-trainee-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.shared-trainee-name {
+justify-content: center;
+text-align: center;
+}
+.shared-trainee-name p {
+  margin: 0px;
+}
+.shared-trainee-name h4 {
+  margin: 0px;
+}
+.shared-trainee-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shared-button:hover {
+  opacity: 0.8;
+}
