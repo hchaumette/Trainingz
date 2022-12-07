@@ -2,7 +2,7 @@
 
   <div class="created-header">
    <p>YOUR WORKOUT</p>
-    <h3><%= @title %></h3>
+    <h1><%= @title %></h1>
   </div>
 
 
@@ -10,12 +10,12 @@
 
   <div class="created-box-container">
     <div class="created-a-determiner">
-      <p>Test Test Test</p>
+      <%= image_tag "running-shoe" %>
     </div>
     <div class="created-timer">
       <%= image_tag "time-logo.png", alt: "time logo" %>
       <div>
-      <%= @workout.duration %> minutes</p>
+        <p><%= @workout.duration %> minutes</p>
       </div>
     </div>
   </div>

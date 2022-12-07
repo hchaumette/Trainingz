@@ -7,7 +7,7 @@
           <%= simple_form_for [@workout, @round], html: {class:"d-none"}, data: { add_workout_target: "form"} do |f| %>
               <%= f.submit %>
           <% end %>
-            <div class="d-flex align-items-center justify-content-center">
+            <div class="me-4 ms-4">
           <div data-action="click->add-workout#send">
           <%= render "shared/add_button"%>
             </div>
