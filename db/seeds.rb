@@ -4,9 +4,9 @@ require 'openssl'
 require 'json'
 
 puts "Destroy all"
-puts"workout exercise"
+puts "workout exercise"
 WorkoutExercise.destroy_all
-puts"exercise"
+puts "exercise"
 Exercise.destroy_all
 puts "round"
 Round.destroy_all

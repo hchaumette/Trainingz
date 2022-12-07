@@ -123,7 +123,7 @@ ul {
 }
 
 #circle {
-  stroke: #ffffff;
+  stroke: black;
   fill: none;
   stroke-width: 4;
   stroke-dasharray: 175.953; /* this value is the pixel circumference of the circle */
@@ -161,6 +161,7 @@ ul {
   content: "\f04c";
   font-family: "fontawesome";
   display: inline-block;
+  margin-left: 34px;
 }
 
 .play:before {
@@ -168,4 +169,17 @@ ul {
   font-family: "fontawesome";
   display: inline-block;
   font-size: 15px;
+  margin-left: 34px;
+}
+.big-button-start {
+  display:flex;
+  text-decoration: none;
+  background-color: $blue;
+  color: white;
+  border-radius: 16px;
+  height: 54px;
+  width: 300px;
+ justify-content: center;
+  align-items: center;
+  margin: 26px;
 }

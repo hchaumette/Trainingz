@@ -13,7 +13,6 @@ static values = {roundId: Number, workoutId: Number}
   select(event){
     event.preventDefault();
     event.currentTarget.classList.toggle('selected-exercise')
-
     if (event.currentTarget.dataset.selected === true) {
       event.currentTarget.dataset.selected = false
     } else {

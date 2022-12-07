@@ -17,7 +17,7 @@
 
 <% else  %>
 
-<div class="top_bar">
+<div class="top_bar top-bar-workout">
   <div>
     <%= link_to root_path do%>
       <%= image_tag "back.png",alt: "back", width: 42%>
@@ -29,7 +29,7 @@
       <%= f.submit %>
     <% end %>
     <div data-action="click->add-workout#send">
-        <%= image_tag "add.png", alt:"Add a round", width: 42 %>
+      <%= image_tag "add.png", alt:"Add a round", width: 42 %>
     </div>
     </div>
 </div>

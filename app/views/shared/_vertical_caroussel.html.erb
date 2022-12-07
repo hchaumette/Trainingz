@@ -1,41 +1,14 @@
 <div id="app" data-controller="vertical-caroussel" class="w-100">
-<!--
-  <div class="bg-container">
-    <div class="bg-imgs">
-
-    <% @exercises.all.each do |exercice| %>
-
-
-      <%= image_tag exercice.demonstration, class: exercice != @exercises.first ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
-
-    <% end %>
-    </div>
+  <div>
+    <input type="number" value="50" data-vertical-caroussel-target="test">
   </div>
-  -->
+
 
   <div >
-    <% @exercises.each do |exercice| %>
-      <%= image_tag exercice.demonstration, class: exercice != @exercises.first ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
-    <% end %>  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <%  @images.each_with_index do |image,index| %>
+      <%= image_tag image, class: index != 0 ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
+    <% end %>
+  </div>
 
 
   <div class="carousel-nav">
@@ -50,13 +23,7 @@
         </svg>
       <span class="play" id="timer-btn" data-vertical-caroussel-target="button"></span>
     </div>
-    <ul class="dots">
-        <li data-vertical-caroussel-target="allDots" data-action="click->vertical-caroussel#moveStep" class="active"><span></span></li>
-
-      <% (@exercises.size - 1).times do  %>
-        <li data-vertical-caroussel-target="allDots" data-action="click->vertical-caroussel#moveStep" class="active"><span></span></li>
-      <% end %>
-    </ul>
   </div>
-
+<div class="big-button-start" data-action="click->vertical-caroussel#start">
+Start</div>
 </div>
