@@ -1,24 +1,10 @@
 <div class="slider">
 	<div class="slide-track">
-		<div class="slide">
-      <%= link_to workout_path(9), class:"element" do %>
-        <%= render 'shared/workout_card' %>
-      <% end %>
-    </div>
-		<div class="slide">
-      <%= link_to workout_path(9), class:"element" do %>
-        <%= render 'shared/workout_card' %>
-      <% end %>
-    </div>
-		<div class="slide">
-      <%= link_to workout_path(9), class:"element" do %>
-        <%= render 'shared/workout_card' %>
-      <% end %>
-    </div>
-		<div class="slide">
-      <%= link_to workout_path(9), class:"element" do %>
-        <%= render 'shared/workout_card' %>
-      <% end %>
-    </div>
-	</div>
+    <% @workouts.each do |workout| %>
+      <div class="slide">
+        <%= link_to workout_path(workout), class: "slide" do %>
+          <%= render 'shared/workout_card', workout: workout %>
+          <% end %>
+      </div>
+    <% end %>
 </div>
