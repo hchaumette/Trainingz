@@ -2,7 +2,7 @@
   <%= render 'shared/back_arrow', path:'root_path' %>
   <div class="form-container">
     <%= simple_form_for @workout do |f| %>
-      <%= f.input :title,as: :text, label: false, input_html: {class:"form-new", placeholder: "Workout's name"} %>
+      <%= f.input :title,as: :text, label: false, input_html: {class:"form-new"} %>
       <%= f.submit "create", class:"submit-new-button"%>
     <% end %>
   </div>

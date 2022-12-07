@@ -3,13 +3,14 @@
   background-color: white;
   padding: 24px 24px;
   text-align: center;
+  align-items: center;
   >div{
     align-items: center;
     display: flex;
   }
 
-  h2{
-    justify-self: center;
+  h1{
+    margin: 0 0;
   }
 }
 

@@ -13,7 +13,7 @@
   <%= form_with url: round_workout_exercises_path, method: :get, class: "search-bar-exercise" do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "search-bar-exercise",
+      class: "search-bar-exercise search-background",
       placeholder: "Search"
     %>
     <%= submit_tag "Search", class: "d-none" %>
@@ -31,6 +31,7 @@
 
       <div>
         <br>
+
         <% @exercises.each do |exercise| %>
           <div class="card-exercise" data-select-exercise-target="exercise" data-exercise-id=<%=exercise.id%> data-action="click->select-exercise#select" data-selected=false>
             <%= simple_form_for [@round,@workout_exercise],html:{class:'d-none'} do |f| %>
@@ -40,14 +41,15 @@
             <% end %>
             <%= image_tag exercise.demonstration, class:"exercise-img"%>
             <div class="font-size">
-              <%= exercise.title%>
-              <i class="fa-solid fa-check"></i>
+              <strong><%= exercise.title%></strong>
+              <%= image_tag "check_circle.png", alt: "check", width: 24, class:"checked-exercise" %>
+              <%= image_tag "check_circle_empty.png", alt: "check", width: 24, class:"not-checked-exercise" %>
             </div>
           </div>
         <% end %>
       </div>
       <div class="button-height sticky-bot bottom-btn-bg" >
-        <div class="big-button" data-action="click->select-exercise#confirm" >Add</div>
+        <div class="big-button" data-action="click->select-exercise#confirm" >Add exercises</div>
       </div>
 
     </div>
