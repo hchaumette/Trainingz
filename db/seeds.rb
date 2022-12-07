@@ -51,11 +51,11 @@ end
 
 puts "Done"
 puts "Create 4 users"
-user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe")
-user2 = User.create(email: "julien@wagon.org", password: "password", name: "lucas")
-user3 = User.create(email: "etienne@mail.com", password: "password", coach: true, name: "théo")
-user4 = User.create(email: "hugo@mail.com", password: "000000", name: "hugo", coach: true)
-User.create(email: "frederic@gmal.fr", password: "password", name: "Maxence")
+user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe", avatar: "https://i.pinimg.com/474x/0b/39/16/0b3916c82c77b7e6530b1988ecdf4667.jpg")
+user2 = User.create(email: "julien@wagon.org", password: "password", name: "Eve", avatar: "https://i.pinimg.com/474x/65/58/16/655816a097d496fcfc1d0ff551df1679.jpg")
+user3 = User.create(email: "etienne@mail.com", password: "password", coach: true, name: "théo", avatar: "https://i.pinimg.com/474x/45/32/12/45321286c4f7c76b8b5c24fffaac9b0b.jpg")
+user4 = User.create(email: "hugo@mail.com", password: "000000", name: "hugo", coach: true, avatar: "https://i.pinimg.com/474x/00/1c/aa/001caaa4daa43764dcfb61b804cc918d.jpg")
+User.create(email: "frederic@gmal.fr", password: "password", name: "Bili", avatar: "https://i.pinimg.com/474x/d4/57/ca/d457ca828a03d20c8a722992634d70a4.jpg")
 puts "Done"
 
 
