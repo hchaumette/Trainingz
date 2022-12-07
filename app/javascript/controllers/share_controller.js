@@ -6,8 +6,10 @@ export default class extends Controller {
   }
 
   send(event){
+    console.log('hello')
     event.preventDefault();
-    let eventform = event.currentTarget[2];
+    let eventform = event.currentTarget.querySelector(".shared-button");
+    console.log(eventform)
     const url = event.currentTarget.action ;
     fetch(url, {
       method: "POST",
@@ -15,7 +17,8 @@ export default class extends Controller {
       body: new FormData(event.currentTarget)
     })
       .then((response) => {
-        eventform.setAttribute('disabled', 'true')
+        // eventform.setAttribute('disabled', 'true')
+        eventform.classList.add("shared-button-active")
       })
 
     }

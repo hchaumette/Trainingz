@@ -22,7 +22,7 @@
         <div class="shared-trainee-button">
           <%= simple_form_for [@workout,@user_workout], data:{action:'click->share#send'} do |f| %>
             <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
-            <%= image_submit_tag "shared-plane.png", class:"shared-button" %>
+            <%= image_submit_tag "shared-plane.png", class:"shared-button"%>
           <% end %>
         </div>
       </div>
