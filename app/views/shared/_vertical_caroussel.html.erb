@@ -1,7 +1,7 @@
 <div id="app" data-controller="vertical-caroussel" class="w-100">
-  <div >
+  <div class="gif-container" >
     <%  @images.each_with_index do |image,index| %>
-      <%= image_tag image, class: index != 0 ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
+      <%= image_tag image, class: index != 0 ?  "d-none gif": "gif", data: { vertical_caroussel_target: "allImgs"} %>
     <% end %>
   </div>
 
