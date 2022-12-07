@@ -15,8 +15,13 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
-    @exercises = Exercise.all
-    @durations = @exercises.map { |exercice| exercice.duration }
+    @workout_exercises = @workout.workout_exercises
+    @images = @workout_exercises.map { |exercice| [exercice.exercise.demonstration, "rest.png"] }.flatten
+    @images.pop
+    @images << "finished.png"
+    @durations = @workout_exercises.map { |exercice| [exercice.duration, exercice.rest_duration] }.flatten
+    @durations.pop
+    @durations << 5
   end
 
   def edit
@@ -55,9 +60,17 @@ class WorkoutsController < ApplicationController
   def share
     @workout = Workout.find(params[:id])
     @user_workout = UserWorkout.new
-    @trainees = current_user.trainees
+    @users = current_user.trainees
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR email ILIKE :query"
+      @users = User.where(sql_query, query: "%#{params[:query]}%")
+    elsif @users.empty?
+      @users.concat(User.all)
+    end
+    @users = @users.reject{ |user| current_user == user}
     @user = @workout.user
     @title = @workout.title
+    @avatar = @user.avatar
   end
 
   def destroy
@@ -76,6 +89,16 @@ class WorkoutsController < ApplicationController
       @duration = params[:duration]
       @duration_workout = @workouts.where(duration: @duration) if @duration
     end
+  end
+
+  def success
+    @workout = Workout.find(params[:id])
+    @workout_exercises = @workout.workout_exercises
+    @user = @workout.user
+    @title = @workout.title
+    @workout.duration = @workout.duration / 60
+    @hour = @workout.duration / 60
+    @body_focus = @workout.body_focus.split(',')
   end
 
   private

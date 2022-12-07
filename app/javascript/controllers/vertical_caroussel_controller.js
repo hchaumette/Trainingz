@@ -4,26 +4,16 @@ import { gsap } from "gsap";
 
 // Connects to data-controller="vertical-caroussel"
 export default class extends Controller {
-  static targets = ["circle", "button", "allImgs", "allDots"]
+  static targets = ["circle", "button", "allImgs", "allDots", "test"]
+
   connect() {
+    console.log()
+  }
 
-    this.durations = JSON.parse(this.circleTarget.dataset.time)
-
-    this.currentStepValue = 0;
-    this.tlValue = gsap.timeline();
-    // this.intervalTimer;
-    // this.timeLeft;
-    this.wholeTimeValue = 8;
-    this.isPausedValue = false;
-    this.isStartedValue = false;
-    this.radiusValue = 28;
-    this.initialOffsetValue = Math.PI * 2 * this.radiusValue;
-    console.log(this.timeLeft)
-    if (this.circleTarget) {
-      this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
-      this.animateTimer();
-      this.pauseTimer();
-    }
+  startTimer(){
+    setInterval(() => {
+      this.testTarget.value -= 1
+    }, 1000);
   }
 
   animateTimer() {
@@ -39,11 +29,11 @@ export default class extends Controller {
     });
   }
   changeBackground() {
-    this.allDotsTargets.forEach((dot) => {
-      dot.classList.remove("active");
-    })
+    // this.allDotsTargets.forEach((dot) => {
+    //   dot.classList.remove("active");
+    // })
 
-    this.allDotsTargets[this.currentStepValue].classList.add("active");
+    // this.allDotsTargets[this.currentStepValue].classList.add("active");
 
     this.allImgsTargets.forEach((img) => {
         img.classList.add("d-none");
@@ -54,7 +44,6 @@ export default class extends Controller {
   }
 
   moveStep(event) {
-    console.log("hello")
     const ul = event.currentTarget.parentElement;
     const nodes = Array.from( ul.children );
     const btnIndex = nodes.indexOf( event.currentTarget );
@@ -82,19 +71,26 @@ export default class extends Controller {
   nextStep() {
     this.timeLeft = ((this.remainTime - Date.now()) / 1000).toFixed(2);
     if (this.timeLeft <= 0) {
+      if (this.currentStepValue + 1 === this.allImgsTargets.length){
+        clearInterval(this.intervalTimer);
+        this.finished();
+      }else{
       clearInterval(this.intervalTimer);
       this.isStartedValue = false;
       this.currentStepValue = this.currentStepValue + 1 < this.allImgsTargets.length ? this.currentStepValue + 1 : 0;
       this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
       this.pauseTimer();
       this.changeBackground();
-      this.animateTimer()
+      this.animateTimer();
+      console.log("fin de l'exo")
       return;
+      }
     }
   }
 
-
-
+  finished(){
+    window.location.href = `${window.location.href}/success`;
+  }
 
   pauseTimer() {
     if (this.isStartedValue === false) {
@@ -115,6 +111,26 @@ export default class extends Controller {
       clearInterval(this.intervalTimer);
       this.isPausedValue = this.isPausedValue ? false : true;
       this.tlValue.paused(this.isPausedValue);
+    }
+  }
+
+  start(event){
+    event.currentTarget.classList.add("d-none");
+    // this.startTimer();
+    this.durations = JSON.parse(this.circleTarget.dataset.time);
+    this.currentStepValue = 0;
+    this.tlValue = gsap.timeline();
+    // this.intervalTimer;
+    // this.timeLeft;
+    this.wholeTimeValue = 8;
+    this.isPausedValue = false;
+    this.isStartedValue = false;
+    this.radiusValue = 28;
+    this.initialOffsetValue = Math.PI * 2 * this.radiusValue;
+    if (this.circleTarget) {
+      this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
+      this.animateTimer();
+      this.pauseTimer();
     }
   }
 }
