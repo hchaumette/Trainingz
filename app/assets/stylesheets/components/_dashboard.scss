@@ -18,6 +18,7 @@
 
 .dash{
   max-height: 90vh;
+  min-height: 90vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -39,5 +40,6 @@
   max-height: 90vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  min-height: 90vh;
   margin-left: 1vh;
 }
