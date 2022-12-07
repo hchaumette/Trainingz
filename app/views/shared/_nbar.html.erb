@@ -1,20 +1,28 @@
 <div class="navbar">
   <div class="icone d-flex justify-content-between w-100 text-center">
 
-    <%= link_to root_path, class:"element" do %>
-      <%= image_tag "home 1.png", class: 'ico'%>
-    <% end %>
+    <div class="element">
+      <%= link_to root_path do %>
+        <%= image_tag "home 1.png", class: 'ico', width:24%>
+      <% end %>
+    </div>
 
-    <%= link_to workouts_path, class:"element" do %>
-      <%= image_tag "gym 1.png", class: 'ico' %>
-    <% end %>
+    <div class="element">
+      <%= link_to workouts_path do %>
+        <%= image_tag "gym 1.png", class: 'ico', width:24 %>
+      <% end %>
+    </div>
 
-    <%= link_to new_workout_path, class:"element" do %>
-      <%= image_tag "tab 1.png", class: 'ico'  %>
-    <% end %>
+    <div class="element">
+      <%= link_to new_workout_path do %>
+        <%= image_tag "tab 1.png", class: 'ico', width:24  %>
+      <% end %>
+    </div>
 
-    <%= link_to dashboards_path, class:"element" do %>
-      <%= image_tag "user 1.png", class: 'ico' %>
-    <% end %>
+    <div class="element">
+      <%= link_to dashboards_path do %>
+        <%= image_tag "user 1.png", class: 'ico', width:24 %>
+      <% end %>
+    </div>
   </div>
 </div>
