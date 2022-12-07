@@ -5,8 +5,8 @@
 
 
   <div >
-    <%  @workout_exercises.each do |exercice| %>
-      <%= image_tag exercice.exercise.demonstration, class: exercice != @workout_exercises.first ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
+    <%  @images.each_with_index do |image,index| %>
+      <%= image_tag image, class: index != 0 ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
     <% end %>
   </div>
 
@@ -23,15 +23,6 @@
         </svg>
       <span class="play" id="timer-btn" data-vertical-caroussel-target="button"></span>
     </div>
-    <ul class="dots">
-        <%# <li data-vertical-caroussel-target="allDots" data-action="click->vertical-caroussel#moveStep" class="active"><span></span><li> %>
-
-      <% (@workout_exercises.size).times do  %>
-        <li data-vertical-caroussel-target="allDots" data-action="click->vertical-caroussel#moveStep" class="active"><span></span></li>
-
-      <% end %>
-
-    </ul>
   </div>
 <div class="big-button-start" data-action="click->vertical-caroussel#start">
 Start</div>

@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ["circle", "button", "allImgs", "allDots", "test"]
 
   connect() {
-    console.log(this.tlValue);
+
   }
 
   startTimer(){
@@ -29,11 +29,11 @@ export default class extends Controller {
     });
   }
   changeBackground() {
-    this.allDotsTargets.forEach((dot) => {
-      dot.classList.remove("active");
-    })
+    // this.allDotsTargets.forEach((dot) => {
+    //   dot.classList.remove("active");
+    // })
 
-    this.allDotsTargets[this.currentStepValue].classList.add("active");
+    // this.allDotsTargets[this.currentStepValue].classList.add("active");
 
     this.allImgsTargets.forEach((img) => {
         img.classList.add("d-none");
@@ -71,6 +71,10 @@ export default class extends Controller {
   nextStep() {
     this.timeLeft = ((this.remainTime - Date.now()) / 1000).toFixed(2);
     if (this.timeLeft <= 0) {
+      if (this.currentStepValue + 1 === this.allImgsTargets.length){
+        clearInterval(this.intervalTimer);
+        this.finished();
+      }else{
       clearInterval(this.intervalTimer);
       this.isStartedValue = false;
       this.currentStepValue = this.currentStepValue + 1 < this.allImgsTargets.length ? this.currentStepValue + 1 : 0;
@@ -80,7 +84,12 @@ export default class extends Controller {
       this.animateTimer();
       console.log("fin de l'exo")
       return;
+      }
     }
+  }
+
+  finished(){
+    window.location.href = `${window.location.href.match(/(.*)(workouts.*)/)[1]}/workouts`;
   }
 
   pauseTimer() {
@@ -111,9 +120,6 @@ export default class extends Controller {
     this.durations = JSON.parse(this.circleTarget.dataset.time);
     this.currentStepValue = 0;
     this.tlValue = gsap.timeline();
-    console.log(this.durations);
-    console.log(this.durations[0]);
-    console.log(parseInt(this.durations[this.currentStepValue], 10));
     // this.intervalTimer;
     // this.timeLeft;
     this.wholeTimeValue = 8;
