@@ -1,25 +1,16 @@
 .created-container {
-
+padding: 25px;
 height: 100vh;
 }
 
-.created-header {
-  padding: 20px;
-}
-.created-header h3 {
+.created-header h1 {
   font-family: 'Roobert';
   color: black;
 }
 
-
-.created-button {
-  position: absolute;
-  bottom: 0px;
-  left: 32px;
-}
 .created-box-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .created-a-determiner {
   display: flex;
@@ -38,7 +29,7 @@ height: 100vh;
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 180px;
+  width: 170px;
   height: 180px;
   border-radius: 12px;
   background-color: $orange;
@@ -46,7 +37,6 @@ height: 100vh;
 }
 
 .created-focus {
-  width: 90%;
   height: 200px;
   border: 1px solid $blue;
   margin: 20px auto;
@@ -68,4 +58,9 @@ height: 100vh;
   margin-left: 10px;
   margin-bottom: 10px;
   border-radius: 16px;
+}
+
+
+.created-button {
+
 }
