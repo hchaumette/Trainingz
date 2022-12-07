@@ -6,6 +6,9 @@ class UserWorkoutsController < ApplicationController
     Notification.create!(user: @user_workout.user)
   end
 
+  def success
+  end
+
   private
 
   def user_workout_params

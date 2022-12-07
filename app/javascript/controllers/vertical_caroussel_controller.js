@@ -89,7 +89,7 @@ export default class extends Controller {
   }
 
   finished(){
-    window.location.href = `${window.location.href.match(/(.*)(workouts.*)/)[1]}/workouts`;
+    window.location.href = `${window.location.href}/success`;
   }
 
   pauseTimer() {
