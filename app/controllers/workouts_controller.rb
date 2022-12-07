@@ -15,8 +15,13 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
-    @exercises = Exercise.all
-    @durations = @exercises.map { |exercice| exercice.duration }
+    @workout_exercises = @workout.workout_exercises
+    @images = @workout_exercises.map { |exercice| [exercice.exercise.demonstration, "rest.png"] }.flatten
+    @images.pop
+    @images << "finished.png"
+    @durations = @workout_exercises.map { |exercice| [exercice.duration, exercice.rest_duration] }.flatten
+    @durations.pop
+    @durations << 5
   end
 
   def edit

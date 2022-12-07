@@ -2,12 +2,21 @@
   border: none;
   color: grey;
   background-color: rgb(231, 231, 231);
-  border-radius: 12px;
+  border-radius: 20px;
   width: 300px;
   margin: 0 auto;
   padding: 2px;
 }
 
+.search-background{
+  background-image:asset-url("search.png");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-size: 16px;
+  padding: 0 48px;
+  background-position: 16px;
+  height: 34px;
+}
 .search-bar {
   border: none;
   color: grey;

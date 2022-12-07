@@ -5,8 +5,10 @@
   color: white;
   border-radius: 16px;
   height: 54px;
+
   width: 325px;
   justify-content: center;
+
   align-items: center;
   margin-top: 8px;
 }
@@ -18,11 +20,20 @@
   margin: 20px auto;
 }
 
-.selected-exercise i {
-  padding: 2px;
-  color: $green;
-  border-radius: 50%;
-  border: 1px solid $green;
+.checked-exercise{
+  display: none;
+}
+.not-checked-exercise{
+  display: block;
+}
+
+.selected-exercise{
+  .checked-exercise{
+    display: block;
+  }
+  .not-checked-exercise{
+    display: none;
+  }
 }
 
 .button-secondary{
