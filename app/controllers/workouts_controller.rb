@@ -91,6 +91,16 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def success
+    @workout = Workout.find(params[:id])
+    @workout_exercises = @workout.workout_exercises
+    @user = @workout.user
+    @title = @workout.title
+    @workout.duration = @workout.duration / 60
+    @hour = @workout.duration / 60
+    @body_focus = @workout.body_focus.split(',')
+  end
+
   private
 
   def workout_params
