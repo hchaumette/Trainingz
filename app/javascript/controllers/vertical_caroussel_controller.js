@@ -7,23 +7,6 @@ export default class extends Controller {
   static targets = ["circle", "button", "allImgs", "allDots"]
   connect() {
 
-    this.durations = JSON.parse(this.circleTarget.dataset.time)
-
-    this.currentStepValue = 0;
-    this.tlValue = gsap.timeline();
-    // this.intervalTimer;
-    // this.timeLeft;
-    this.wholeTimeValue = 8;
-    this.isPausedValue = false;
-    this.isStartedValue = false;
-    this.radiusValue = 28;
-    this.initialOffsetValue = Math.PI * 2 * this.radiusValue;
-    console.log(this.timeLeft)
-    if (this.circleTarget) {
-      this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
-      this.animateTimer();
-      this.pauseTimer();
-    }
   }
 
   animateTimer() {
@@ -79,6 +62,13 @@ export default class extends Controller {
     } , 10);
   }
 
+
+
+
+
+
+
+
   nextStep() {
     this.timeLeft = ((this.remainTime - Date.now()) / 1000).toFixed(2);
     if (this.timeLeft <= 0) {
@@ -88,11 +78,18 @@ export default class extends Controller {
       this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
       this.pauseTimer();
       this.changeBackground();
-      this.animateTimer()
+      this.animateTimer();
+
+
+      console.log("fin de l'exo")
+
+
+
+
+
       return;
     }
   }
-
 
 
 
@@ -115,6 +112,26 @@ export default class extends Controller {
       clearInterval(this.intervalTimer);
       this.isPausedValue = this.isPausedValue ? false : true;
       this.tlValue.paused(this.isPausedValue);
+    }
+  }
+
+  start(event){
+    event.currentTarget.classList.add("d-none");
+    this.durations = JSON.parse(this.circleTarget.dataset.time);
+    this.currentStepValue = 0;
+    this.tlValue = gsap.timeline();
+    // this.intervalTimer;
+    // this.timeLeft;
+    this.wholeTimeValue = 8;
+    this.isPausedValue = false;
+    this.isStartedValue = false;
+    this.radiusValue = 28;
+    this.initialOffsetValue = Math.PI * 2 * this.radiusValue;
+    console.log(this.timeLeft);
+    if (this.circleTarget) {
+      this.wholeTimeValue = parseInt(this.durations[this.currentStepValue], 10);
+      this.animateTimer();
+      this.pauseTimer();
     }
   }
 }
