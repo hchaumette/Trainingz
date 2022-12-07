@@ -1,6 +1,7 @@
 .created-container {
 padding: 25px;
-height: 100vh;
+overflow: hidden;
+height: 90vh;
 }
 
 .created-header h1 {
@@ -58,9 +59,4 @@ height: 100vh;
   margin-left: 10px;
   margin-bottom: 10px;
   border-radius: 16px;
-}
-
-
-.created-button {
-
 }
