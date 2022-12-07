@@ -1,20 +1,7 @@
 <div class="show-container">
   <%= render 'shared/back_arrow'%>
-  <div class="top">
-    <h1> <%= @workout.title %> </h1>
-    <div class="workout_info">
-      <div class="time">
-      <p> <%= @workout.duration%></p>
-      <p>min</p>
-      </div>
-      <div class="rounds">
-      <p><%= @workout.rounds.size%></p>
-      <p>rounds</p>
-      </div>
-    </div>
-  </div>
+
   <div class="bot">
-    <p class="name"><%= @exercises.name %></p>
     <%= render 'shared/vertical_caroussel' %>
   </div>
 </div>
