@@ -16,7 +16,8 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
-    @durations = @workout_exercises.map { |exercice| exercice.exercise.duration }
+    @durations = @workout_exercises.map { |exercice| [exercice.duration, exercice.rest_duration] }.flatten
+    raise
   end
 
   def edit
