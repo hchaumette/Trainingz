@@ -2,11 +2,9 @@ class DashboardsController < ApplicationController
   def index
     @workouts = []
 
-    if current_user.coach
-      @workout = User.workout
-    else
-      @workout = current_user.user_workouts
-    end
+
+    @workout = current_user.user_workouts
+
 
     if params[:query].present?
       @query = params[:query]
