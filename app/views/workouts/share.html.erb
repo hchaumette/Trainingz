@@ -4,10 +4,20 @@
       <h1><%= @title %></h1>
   </div>
 
+<div class="margin-search-bar">
+  <%= form_with url: share_path, method: :get, class: "search-bar-exercise" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-bar-exercise search-background",
+      placeholder: "Search"
+    %>
+    <%= submit_tag "Search", class: "d-none" %>
+  <% end %>
+</div>
 
 
   <div data-controller="share">
-    <% @trainees.each do |trainee| %>
+    <% @users.each do |trainee| %>
       <div class="shared-trainee-container">
         <div>
           <%= image_tag trainee.avatar, class:"shared-trainee-avatar" %>
