@@ -8,10 +8,15 @@
 }
 
 .form-container {
-  display: flex;
-  padding-top: 80px;
+  padding-top: 60px;
   padding-left: 20px;
+  padding-right: 20px;
 }
+.form-container h1 {
+  font-family: 'Roobert';
+  color: black;
+}
+
 
 .submit-new-button {
   background-color: white;
@@ -23,13 +28,14 @@
 
 
 .form-new{
-  background-color: #f000;
+  background-color: rgba(197, 197, 197, 0.482);
   border: none;
   font-size: 30px;
   resize: none;
 }
 
 .form-new:focus{
+  background-color: rgba(197, 197, 197, 0.283);
   border: none;
   outline: none !important;
   box-shadow: none ;

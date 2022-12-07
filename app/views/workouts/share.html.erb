@@ -1,16 +1,21 @@
-<h1>Share</h1>
+ <div class="created-container">
+  <div class="created-header">
+    <p>YOUR WORKOUT</p>
+      <h1><%= @title %></h1>
+  </div>
 
-<h2>My trainees</h2>
 
-<div data-controller="share">
-  <% @trainees.each do |trainee| %>
-    <div>
-      <%= trainee.name %>
 
-      <%= simple_form_for [@workout,@user_workout], data:{action:'click->share#send'} do |f| %>
-        <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
-        <%= f.submit "share"%>
-      <% end %>
-    </div>
-  <% end %>
+  <div data-controller="share">
+    <% @trainees.each do |trainee| %>
+      <div>
+        <%= trainee.name %>
+
+        <%= simple_form_for [@workout,@user_workout], data:{action:'click->share#send'} do |f| %>
+          <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
+          <%= f.submit "share"%>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

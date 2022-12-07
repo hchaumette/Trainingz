@@ -48,6 +48,7 @@ class WorkoutsController < ApplicationController
     @user = @workout.user
     @title = @workout.title
     @workout.duration = @workout.duration / 60
+    @hour = @workout.duration / 60
     @body_focus = @workout.body_focus.split(',')
   end
 
@@ -55,6 +56,8 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @user_workout = UserWorkout.new
     @trainees = current_user.trainees
+    @user = @workout.user
+    @title = @workout.title
   end
 
   def destroy
