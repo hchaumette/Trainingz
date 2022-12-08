@@ -9,10 +9,9 @@
 
 
   <div class="created-box-container">
-    <div class="created-photo">
-      <%= simple_form_for @workout do |f| %>
-      <%= f.input :photo, as: :file, label:"Add a photo", input_html: {class: 'd-none'} %>
-      <%= f.submit "Add", class: "created-photo-button"%>
+    <div class="created-photo" data-controller="upload-photo">
+      <%= simple_form_for @workout, data: {upload_photo_target: "form"} do |f| %>
+      <%= f.input :photo, as: :file, label:"Select a photo", input_html:  { class:'d-none', data: {  action: "change->upload-photo#upload"}}%>
     <% end %>
     </div>
     <div class="created-timer">

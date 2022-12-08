@@ -1,18 +1,15 @@
 .top-dash{
+  width: 400px;
   display: flex;
-  p{
-    color: white;
-    font-size: 38px;
-  }
-
-  h1{
-    margin-top: 2vh;
-  }
-
   position: sticky;
   top: 0;
   z-index: 1;
   background-color: white;
+  h1 {
+    margin-left: 50px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
 }
 
 
@@ -25,15 +22,17 @@
 }
 
 .cards{
+
   display: grid;
-  grid-template-columns: 100% 100%;
-  row-gap: 15px;
-  column-gap: 40px;
-  width: 40%;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 16px;
+  column-gap: 16px;
+  width: 50%;
 }
 
 .dash-container{
-  margin-left: 1vh;
+  margin-left: 42px;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 
