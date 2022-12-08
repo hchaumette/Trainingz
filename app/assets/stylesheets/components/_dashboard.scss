@@ -25,13 +25,13 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 26px;
   row-gap: 16px;
   column-gap: 16px;
-  width: 50%;
+  width: 100%;
 }
 
 .dash-container{
-  margin-left: 42px;
   margin-bottom: 20px;
   overflow: hidden;
 }
@@ -41,5 +41,4 @@
   overflow-x: hidden;
   overflow-y: scroll;
   min-height: 90vh;
-  margin-left: 1vh;
 }
