@@ -2,21 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="select-exercise"
 export default class extends Controller {
-static targets = ["exercise"]
+static targets = ["exercise","container"]
 
 static values = {roundId: Number, workoutId: Number}
 
   connect() {
-
   }
 
   select(event){
     event.preventDefault();
-    event.currentTarget.classList.toggle('selected-exercise')
-    if (event.currentTarget.dataset.selected === true) {
-      event.currentTarget.dataset.selected = false
+    event.currentTarget.classList.toggle('selected-exercise');
+    if (event.currentTarget.dataset.selected === "true") {
+      event.currentTarget.dataset.selected = false;
     } else {
-      event.currentTarget.dataset.selected = true
+      event.currentTarget.dataset.selected = true;
+      this.containerTarget.after(event.currentTarget);
     }
 
   }
@@ -43,5 +43,16 @@ static values = {roundId: Number, workoutId: Number}
     })
   }
 
+  search(event){
+    this.exerciseTargets.forEach((exercise)=>{
+      const title = exercise.dataset.title.toUpperCase().indexOf(event.currentTarget.value.toUpperCase()) > -1
+      const focus = exercise.dataset.focus.toUpperCase().indexOf(event.currentTarget.value.toUpperCase()) > -1
+      if (title || focus){
+        exercise.classList.remove("d-none");
+      } else if (exercise.dataset.selected === "false") {
+        exercise.classList.add("d-none");
+      }
+    })
+  }
 }
     // window.location.href = `${window.location.href.match(/(.*)(rounds.*)/)[1]}workouts/${this.workoutIdValue}/edit`;

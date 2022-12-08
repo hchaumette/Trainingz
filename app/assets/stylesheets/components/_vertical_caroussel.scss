@@ -36,6 +36,15 @@
   background-repeat: no-repeat;
 }
 
+.progress-style{
+  transition-duration: 100ms;
+  height: 20vh;
+}
+
+.progress-bar-style{
+  background-color: $orange;
+}
+
 .carousel-nav {
   display: -webkit-box;
   display: -ms-flexbox;
