@@ -1,12 +1,17 @@
 <div id="app" data-controller="vertical-caroussel" class="w-100">
-  <div class="gif-container" >
+  <div>
+    <input type="number" value="50" data-vertical-caroussel-target="test">
+  </div>
+
+
+  <div >
     <%  @images.each_with_index do |image,index| %>
-      <%= image_tag image, class: index != 0 ?  "d-none gif": "gif", data: { vertical_caroussel_target: "allImgs"} %>
+      <%= image_tag image, class: index != 0 ?  "d-none gif-container": "gif-container", data: { vertical_caroussel_target: "allImgs"} %>
     <% end %>
   </div>
 
 
-  <div class="carousel-nav d-none" data-vertical-caroussel-target="timer">
+  <div class="carousel-nav">
     <div class="timer" data-action="click->vertical-caroussel#pauseTimer">
       <svg width="60" height="60" viewBox="0 0 60 60">
         <circle cx="30" cy="30" r="29" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="182.212"
@@ -19,11 +24,6 @@
       <span class="play" id="" data-vertical-caroussel-target="button"></span>
     </div>
   </div>
-  <div class="big-button-start" data-action="click->vertical-caroussel#start">
-    Start
-  </div>
-
-  <div class="timer-number d-none" data-vertical-caroussel-target="time">
-    <p><strong></strong>s</p>
-  </div>
+<div class="big-button-start" data-action="click->vertical-caroussel#start">
+Start</div>
 </div>
