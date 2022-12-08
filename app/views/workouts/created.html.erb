@@ -11,7 +11,7 @@
   <div class="created-box-container">
     <div class="created-photo">
       <%= simple_form_for @workout do |f| %>
-      <%= f.input :photo, as: :file, label:"Add a photo", input_html: {class: 'd-none'} %>
+      <%= f.input :photo, as: :file, label:"Select a photo", input_html: {class:'d-none'}, input_label: {class:"style-photo-button"} %>
       <%= f.submit "Add", class: "created-photo-button"%>
     <% end %>
     </div>
