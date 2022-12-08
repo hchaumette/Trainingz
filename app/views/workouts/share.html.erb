@@ -19,7 +19,11 @@
       <% @users.each do |trainee| %>
         <div class="shared-trainee-container">
           <div>
-            <%= cl_image_tag trainee.photo.key ,class:"shared-trainee-avatar"%>
+            <% if trainee.photo.attached?  %>
+              <%= cl_image_tag trainee.photo.key ,class:"shared-trainee-avatar"%>
+
+            <% end %>
+
           </div>
           <div class="shared-trainee-name">
             <h4><%= trainee.name.capitalize %></h4>
