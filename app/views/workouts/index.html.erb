@@ -6,14 +6,14 @@
   </div>
 
    <div class="search-bar">
-      <%= form_with url: workouts_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a workout"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+      <%= form_with url: workouts_path, method: :get, class: "search-bar-exercise" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-bar-exercise search-background",
+      placeholder: "Search"
+    %>
+    <%= submit_tag "Search", class: "d-none" %>
+  <% end %>
     </div>
 
 

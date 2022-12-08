@@ -16,11 +16,16 @@
   background-image: asset-url("quote.png");
   background-size: cover ;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: end;
   text-align: center;
   height: 12vh;
+  img{
+    height: 20%;
+    margin-top: 1.5vh;
+    opacity: 0.8;
+  }
+  p{
+    margin-top: 0.5vh;
+  }
 }
 
 .caroussel{
