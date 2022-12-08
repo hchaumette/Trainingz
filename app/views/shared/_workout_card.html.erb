@@ -1,5 +1,8 @@
-
-<div class="card-workout">
+<% if workout.photo.attached? %>
+  <div class="card-workout" style= "background-image: url(<%= cl_image_path workout.photo.key%>)">
+  <% else %>
+  <div class="card-workout" style= "background-image: url(https://i.pinimg.com/474x/51/5a/ea/515aea870a7e4bcc8ba477cf9763fad6.jpg)">
+<% end %>
   <div class="card-workout-infos" >
     <div class="text">
       <%= workout.title %>

@@ -1,6 +1,6 @@
 class Round < ApplicationRecord
   belongs_to :workout
-  has_many :workout_exercises
+  has_many :workout_exercises, dependent: :destroy
   before_update :update_exercises
 
   private
