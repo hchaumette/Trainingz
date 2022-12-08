@@ -9,13 +9,11 @@
 
 
   <div class="created-box-container">
-    <div class="created-a-determiner">
-
+    <div class="created-photo">
       <%= simple_form_for @workout do |f| %>
-      <%= f.input :photo, as: :file%>
-      <%= f.submit "Add", class:"submit-new-button"%>
+      <%= f.input :photo, as: :file, label:"Add a photo", input_html: {class: 'd-none'} %>
+      <%= f.submit "Add", class: "created-photo-button"%>
     <% end %>
-
     </div>
     <div class="created-timer">
       <%= image_tag "time-logo.png", alt: "time logo" %>
