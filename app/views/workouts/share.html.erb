@@ -1,42 +1,42 @@
- <div class="created-container">
-  <div class="created-header">
-    <p>YOUR WORKOUT</p>
-      <h1><%= @title %></h1>
-  </div>
+ <div class="total">
+   <div class="created-container">
+    <div class="created-header">
+      <p>YOUR WORKOUT</p>
+        <h1><%= @title %></h1>
+    </div>
 
-<div class="margin-search-bar">
-  <%= form_with url: share_path, method: :get, class: "search-bar-exercise" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-bar-exercise search-background",
-      placeholder: "Search"
-    %>
-    <%= submit_tag "Search", class: "d-none" %>
-  <% end %>
-</div>
-
-
-  <div data-controller="share">
-    <% @users.each do |trainee| %>
-      <div class="shared-trainee-container">
-        <div>
-          <%= image_tag trainee.avatar, class:"shared-trainee-avatar" %>
-        </div>
-        <div class="shared-trainee-name">
-          <h4><%= trainee.name.capitalize %></h4>
-          <p><%= trainee.email %></p>
-        </div>
-        <div class="shared-trainee-button">
-          <%= simple_form_for [@workout,@user_workout], data:{action:'click->share#send'} do |f| %>
-            <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
-            <%= image_submit_tag "shared-plane.png", class:"shared-button"%>
-          <% end %>
-        </div>
-      </div>
+   <div class="margin-search-bar">
+    <%= form_with url: share_path, method: :get, class: "search-bar-exercise" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar-exercise search-background",
+        placeholder: "Search"
+      %>
+      <%= submit_tag "Search", class: "d-none" %>
     <% end %>
-  </div>
+   </div>
+    <div data-controller="share">
+      <% @users.each do |trainee| %>
+        <div class="shared-trainee-container">
+          <div>
+            <%= image_tag trainee.avatar, class:"shared-trainee-avatar" %>
+          </div>
+          <div class="shared-trainee-name">
+            <h4><%= trainee.name.capitalize %></h4>
+            <p><%= trainee.email %></p>
+          </div>
+          <div class="shared-trainee-button">
+            <%= simple_form_for [@workout,@user_workout], data:{action:'click->share#send'} do |f| %>
+              <%= f.input :user_id, input_html: {value: trainee.id, class:"d-none"}, label_html:{class:"d-none"}%>
+              <%= image_submit_tag "shared-plane.png", class:"shared-button"%>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
-</div>
+   </div>
+ </div>
 
 
 <div class="nbar sticky-bot">
