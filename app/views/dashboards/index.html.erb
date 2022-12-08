@@ -1,9 +1,12 @@
-<div class="dash">
+<div class="workout_page">
   <div class="top-dash">
-    <%= render "shared/back_arrow" %>
+    <div>
+      <%= render 'shared/back_arrow', path:'root_path' %>
+    </div>
+    <div>
+      <h1>DASHBOARD</h1>
+    </div>
   </div>
-  <div class="container">
-    <h1>DASHBOARD</h1>
     <%= render 'shared/search_workout' %>
   </div>
 </div>
