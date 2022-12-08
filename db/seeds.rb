@@ -36,7 +36,6 @@ request["X-RapidAPI-Key"] = ENV["API_SPORT"]
 request["X-RapidAPI-Host"] = 'exercisedb.p.rapidapi.com'
 
 response = http.request(request)
-
 exercises = JSON.parse(response.read_body)
 
 puts "Create 9 Exercises"
@@ -53,11 +52,27 @@ end
 
 puts "Done"
 puts "Create 4 users"
-user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe", avatar: "https://i.pinimg.com/474x/0b/39/16/0b3916c82c77b7e6530b1988ecdf4667.jpg")
-user2 = User.create(email: "julien@wagon.org", password: "password", name: "Eve", avatar: "https://i.pinimg.com/474x/65/58/16/655816a097d496fcfc1d0ff551df1679.jpg")
-user3 = User.create(email: "etienne@mail.com", password: "password", coach: true, name: "théo", avatar: "https://i.pinimg.com/474x/45/32/12/45321286c4f7c76b8b5c24fffaac9b0b.jpg")
-user4 = User.create!(email: "hugo@mail.com", password: "000000", name: "hugo", coach: true, avatar: "https://i.pinimg.com/474x/00/1c/aa/001caaa4daa43764dcfb61b804cc918d.jpg")
-User.create(email: "frederic@gmal.fr", password: "password", name: "Bili", avatar: "https://i.pinimg.com/474x/d4/57/ca/d457ca828a03d20c8a722992634d70a4.jpg")
+user1 = User.create(email: "jean@wagon.org", password: "password", name: "Joe")
+file =  URI.open("app/assets/images/camille-avatar.png")
+user1.photo.attach(io: file, filename: "camille-avatar.png", content_type: "image/png")
+
+user2 = User.create(email: "julien@wagon.org", password: "password", name: "Eve")
+file =  URI.open("app/assets/images/victor-avatar.png")
+user2.photo.attach(io: file, filename: "victor-avatar.png", content_type: "image/png")
+
+user3 = User.create(email: "etienne@mail.com", password: "password", coach: true, name: "théo")
+file =  URI.open("app/assets/images/theo-avatar.jpeg")
+user3.photo.attach(io: file, filename: "theo-avatar.jpeg", content_type: "image/jpeg")
+
+user4 = User.create!(email: "hugo@mail.com", password: "000000", name: "hugo", coach: true)
+file =  URI.open("app/assets/images/hugo-avatar.jpeg")
+user4.photo.attach(io: file, filename: "hugo-avatar.jpeg", content_type: "image/jpeg")
+
+user5 = User.create(email: "frederic@gmal.fr", password: "password", name: "Bili")
+file =  URI.open("app/assets/images/bili-avatar.jpg")
+user5.photo.attach(io: file, filename: "bili-avatar.jpg", content_type: "image/jpg")
+
+
 puts "Done"
 
 

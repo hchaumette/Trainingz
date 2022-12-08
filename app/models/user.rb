@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :workouts
   has_many :user_workouts
   has_many :coachings
+
+  has_one_attached :photo
 end
