@@ -4,7 +4,9 @@
   </div>
   <div class="home">
     <div class="container" >
+
       <h1>Welcome <%= current_user.name if current_user %></h1>
+
       <div class="quote">
         <%= image_tag "quo.png", classe: "quo" %>
         <p>"A year from now you may wish you had started today"</p>
@@ -20,7 +22,9 @@
       </div>
     </div>
   </div>
-  <div class="nbar">
+
+</div>
+
+  <div class="sticky-bot">
     <%= render 'shared/nbar' %>
   </div>
-</div>
