@@ -1,10 +1,12 @@
 class DashboardsController < ApplicationController
   def index
-    @workouts = []
 
 
-    @workout = current_user.user_workouts
-
+    if current_user.coach
+      @uw = current_user.workouts
+    else
+      @uw = current_user.user_workouts
+    end
 
     if params[:query].present?
       @query = params[:query]
@@ -16,5 +18,8 @@ class DashboardsController < ApplicationController
       @duration = params[:duration]
       @duration_workouts = @workouts.where(duration: @duration) if @duration
     end
+    # @user_workout = UserWorkout.find(params[:id])
+    # @workout_user = @user_workout.Workout
+
   end
 end

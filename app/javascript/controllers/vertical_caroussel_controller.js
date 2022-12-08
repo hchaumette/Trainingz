@@ -7,6 +7,7 @@ export default class extends Controller {
   static targets = ["circle", "button", "allImgs", "allDots", "timer","time"]
 
   connect() {
+
   }
 
   startTimer(){

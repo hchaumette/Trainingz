@@ -4,9 +4,12 @@
   </div>
   <div class="home">
     <div class="container" >
+
       <h1>Welcome <%= current_user.name if current_user %></h1>
+
       <div class="quote">
-        <p>"Si tu détestes recommencer, arrête d'abandonner"</p>
+        <%= image_tag "quo.png", classe: "quo" %>
+        <p>"A year from now you may wish you had started today"</p>
       </div>
 
       <div class="display_workout">
@@ -19,7 +22,9 @@
       </div>
     </div>
   </div>
-  <div class="nbar">
+
+</div>
+
+  <div class="sticky-bot">
     <%= render 'shared/nbar' %>
   </div>
-</div>

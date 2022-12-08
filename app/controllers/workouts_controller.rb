@@ -42,10 +42,14 @@ class WorkoutsController < ApplicationController
         end
       end
     end
-    @workout.update(duration:time, body_focus:body_part.join(','))
+    datas = {
+      duration: time,
+      body_focus: body_part.join(',')
+    }
+    datas[:photo] = params[:workout][:photo] if params[:workout].present? && params[:workout][:photo].present?
+    @workout.update(datas)
 
     redirect_to created_path(@workout)
-
   end
 
   def created
@@ -104,6 +108,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:title, :duration)
+    params.require(:workout).permit(:title, :duration, :photo)
   end
 end
