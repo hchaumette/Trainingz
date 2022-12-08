@@ -1,29 +1,24 @@
-
 <div class="created-container taille">
-    <div class="created-header">
-      <p>YOUR WORKOUT</p>
-
-<div class="total">
-  <div class="created-container">
-
-    <div class="created-header">
-     <p>YOUR WORKOUT</p>
-      <h1><%= @title %></h1>
-    </div>
-    <div class="created-box-container">
-      <div class="created-a-determiner">
-        <%= image_tag "running-shoe.png" %>
-      </div>
-      <div class="created-timer">
-        <%= image_tag "time-logo.png", alt: "time logo" %>
-        <div>
-          <p> You Workout for <%= @workout.duration %> minutes</p>
+  <div class="created-header">
+    <p>YOUR WORKOUT</p>
+    <div class="total">
+      <div class="created-container">
+        <div class="created-header">
+          <p>YOUR WORKOUT</p>
+          <h1><%= @title %></h1>
         </div>
+        <div class="created-box-container">
+          <div class="created-a-determiner">
+            <%= image_tag "running-shoe.png" %>
+          </div>
+          <div class="created-timer">
+            <%= image_tag "time-logo.png", alt: "time logo" %>
+          <div>
+            <p> You Workout for <%= @workout.duration %> minutes</p>
+          </div>
+         </div>
       </div>
     </div>
-
-
-
 
     <div class="created-focus">
       <h5>Your exercices</h5>
@@ -43,16 +38,3 @@
   <div class="nbar">
     <%= render 'shared/nbar' %>
   </div>
-
-              <%= exercice.exercise.title %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="nbar">
-  <%= render 'shared/nbar' %>
-</div>
-</div>
-
