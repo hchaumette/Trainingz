@@ -5,8 +5,11 @@
   width: 6vh;
 
   background-color: white;
-  height: 40px;
-  width: 40px;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 
 }
@@ -17,9 +20,9 @@
 }
 
 .ico{
-  width: 4vh;
-  height: 4vh;
-  margin-top: 1vh;
+  width: 28px;
+  height: 28px;
+
 }
 
 .navbar{
