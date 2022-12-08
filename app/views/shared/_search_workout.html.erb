@@ -12,9 +12,10 @@
 <% if @query.present? && @search_workouts != nil %>
     <h2 class="text-center m-5">Results for <%=@query %></h2>
       <div class="cards">
-        <% @search_workouts.user_workouts.each do |workout| %>
+
+        <% @search_workouts.each do |workout| %>
           <%= link_to workout_path(workout) do %>
-          <%= console %>
+
           <%= render 'shared/workout_card', workout: workout%>
           <% end %>
         <% end %>

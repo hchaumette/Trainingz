@@ -4,7 +4,9 @@
   </div>
   <div class="home">
     <div class="container" >
-      <h1>Welcome </h1>
+
+      <h1>Welcome <%= current_user.name if current_user %></h1>
+
       <div class="quote">
         <p>"Si tu détestes recommencer, arrête d'abandonner"</p>
       </div>

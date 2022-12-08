@@ -1,13 +1,19 @@
 .element {
   text-decoration: none;
   color: black;
-  width: 6vh;
-  background-color: white;
-  border-radius: 50%;
 
-  :hover{
-    background-color: black;
-  }
+  width: 6vh;
+
+  background-color: white;
+  height: 40px;
+  width: 40px;
+
+
+}
+.element:hover{
+  border-radius: 50%;
+  background-color: $orange;
+
 }
 
 .ico{
@@ -23,4 +29,7 @@
   height: 10vh;
   position: sticky;
   bottom: 0;
+
+  padding: 0 24px;
+
 }

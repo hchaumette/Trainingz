@@ -1,6 +1,13 @@
 .created-container {
-padding: 25px;
-height: 100vh;
+padding: 15px;
+
+max-height: 100vh;
+
+}
+
+.taille{
+  height: 90vh;
+
 }
 
 .created-header h1 {
@@ -42,6 +49,7 @@ height: 100vh;
   margin: 20px auto;
   padding: 12px;
   border-radius: 12px;
+  overflow: scroll;
 }
 .created-focus h5 {
   font-family: 'Roobert';
@@ -58,9 +66,4 @@ height: 100vh;
   margin-left: 10px;
   margin-bottom: 10px;
   border-radius: 16px;
-}
-
-
-.created-button {
-
 }
