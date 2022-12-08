@@ -6,9 +6,10 @@ export default class extends Controller {
   }
 
   send(event){
+    console.log('hello')
     event.preventDefault();
     let eventform = event.currentTarget;
-    console.log(eventform);
+
     const url = event.currentTarget.action ;
     fetch(url, {
       method: "POST",
