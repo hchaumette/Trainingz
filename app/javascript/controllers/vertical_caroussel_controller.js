@@ -82,7 +82,6 @@ export default class extends Controller {
       this.pauseTimer();
       this.changeBackground();
       this.animateTimer();
-      console.log("fin de l'exo")
       return;
       }
     }
