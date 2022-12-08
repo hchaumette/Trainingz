@@ -1,6 +1,9 @@
 .timer-number{
   display: flex;
   justify-content: center;
+  position: relative;
+  height: 10vh;
+  bottom: -75px;
   p{
     font-size: large;
   }
@@ -36,14 +39,28 @@
   background-repeat: no-repeat;
 }
 
+.timer-container{
+  position:sticky;
+  bottom: 0;
+}
 .progress-style{
   transition-duration: 100ms;
-  height: 20vh;
+  height: 10vh;
 }
 
 .progress-bar-style{
   background-color: $orange;
 }
+
+.mid{
+  height: 71vh;
+}
+.bot{
+  p{
+    font-size: 35px;
+  }
+}
+
 
 .carousel-nav {
   display: -webkit-box;

@@ -1,32 +1,36 @@
 <div id="app" data-controller="vertical-caroussel" class="w-100">
-  <div class="gif-container" >
-    <%  @images.each_with_index do |image,index| %>
-      <%= image_tag image, class: index != 0 ?  "d-none gif": "gif", data: { vertical_caroussel_target: "allImgs"} %>
-    <% end %>
-  </div>
-
-
-  <div class="carousel-nav d-none" data-vertical-caroussel-target="timer">
-    <div class="timer" data-action="click->vertical-caroussel#pauseTimer">
-      <svg width="60" height="60" viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="29" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="182.212"
-          stroke-dashoffset="0"></circle>
-      </svg>
-        <svg width="60" height="60">
-          <circle id="circle" cx="30" cy="30" r="28" fill="none" stroke="#ffffff" stroke-width="4"  data-time="<%= @durations  %>" data-vertical-caroussel-target="circle"
-            style="stroke-dashoffset: 0px"></circle>
+  <div class="mid">
+    <div class="gif-container" >
+      <%  @images.each_with_index do |image,index| %>
+        <%= image_tag image, class: index != 0 ?  "d-none gif": "gif", data: { vertical_caroussel_target: "allImgs"} %>
+      <% end %>
+    </div>
+    <div class="carousel-nav d-none" data-vertical-caroussel-target="timer">
+      <div class="timer d-none" data-action="click->vertical-caroussel#pauseTimer">
+        <svg width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="29" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="182.212"
+            stroke-dashoffset="0"></circle>
         </svg>
-      <span class="play" id="" data-vertical-caroussel-target="button"></span>
+          <svg width="60" height="60">
+            <circle id="circle" cx="30" cy="30" r="28" fill="none" stroke="#ffffff" stroke-width="4"   data-vertical-caroussel-target="circle"
+              style="stroke-dashoffset: 0px"></circle>
+          </svg>
+        <span class="play" id="" data-vertical-caroussel-target="button">pause</span>
+      </div>
+    </div>
+    <div class="big-button-start" data-action="click->vertical-caroussel#start">
+      Start
     </div>
   </div>
-  <div class="big-button-start" data-action="click->vertical-caroussel#start">
-    Start
-  </div>
 
-  <div class="timer-number d-none" data-vertical-caroussel-target="time">
-    <p><strong></strong>s</p>
+<div class="bot">
+  <div class="timer-container">
+    <div class="timer-number" data-vertical-caroussel-target="time" data-time="<%= @durations %>">
+      <p><strong></strong></p>
+    </div>
+    <div class="progress progress-style" data-vertical-caroussel-target="progressbar">
+      <div class="progress-bar progress-bar-style" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-vertical-caroussel-target="progress"></div>
+    </div>
   </div>
-  <div class="progress progress-style">
-    <div class="progress-bar progress-bar-style" role="progressbar" style="width: 50%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-vertical-caroussel-target="progress"></div>
-  </div>
+</div>
 </div>
