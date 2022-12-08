@@ -21,7 +21,7 @@ export default class extends Controller {
 
   nextStep() {
     this.timeLeft = ((this.remainTime - Date.now()) / 1000).toFixed(2);
-    this.timeTarget.children[0].children[0].innerHTML = this.intToTime(Math.ceil(this.timeLeft));
+    this.timeTarget.children[0].children[0].innerHTML = Math.ceil(this.timeLeft);
     this.progressTarget.setAttribute("style",`width: ${this.timeLeft * 100 / this.wholeTimeValue}%`);
 
     if (this.timeLeft <= 0) {
@@ -49,7 +49,7 @@ export default class extends Controller {
   start(event){
     event.currentTarget.classList.add("d-none");
     this.durations = JSON.parse(this.timeTarget.dataset.time);
-    this.timeTarget.children[0].children[0].innerHTML = this.intToTime(parseInt(this.durations[this.currentStepValue]));
+    this.timeTarget.classList.remove("d-none");
     this.currentStepValue = 0;
     this.tlValue = gsap.timeline();
 

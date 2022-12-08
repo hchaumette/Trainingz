@@ -3,7 +3,8 @@
   justify-content: center;
   position: relative;
   height: 10vh;
-  bottom: -75px;
+  bottom: -210px;
+  z-index: 3;
   p{
     font-size: large;
   }
@@ -53,9 +54,10 @@
 }
 
 .mid{
-  height: 71vh;
+  height: 81vh;
 }
 .bot{
+  height: 20vh;
   p{
     font-size: 35px;
   }
