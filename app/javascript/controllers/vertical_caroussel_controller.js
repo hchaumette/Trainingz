@@ -7,8 +7,6 @@ export default class extends Controller {
   static targets = ["circle", "button", "allImgs", "allDots", "timer","time","progress"]
 
   connect() {
-
-  console.log(this.progressTarget.getAttribute("style"));
   }
 
   // animateTimer() {
