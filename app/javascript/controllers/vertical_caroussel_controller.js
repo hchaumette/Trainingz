@@ -4,15 +4,14 @@ import { gsap } from "gsap";
 
 // Connects to data-controller="vertical-caroussel"
 export default class extends Controller {
-  static targets = ["circle", "button", "allImgs", "allDots", "test"]
+  static targets = ["circle", "button", "allImgs", "allDots", "timer","time"]
 
   connect() {
-    console.log()
   }
 
   startTimer(){
     setInterval(() => {
-      this.testTarget.value -= 1
+      this.timeTarget.children[0].children[0].innerHTML = Math.round(this.timeLeft);
     }, 1000);
   }
 
@@ -70,6 +69,7 @@ export default class extends Controller {
 
   nextStep() {
     this.timeLeft = ((this.remainTime - Date.now()) / 1000).toFixed(2);
+
     if (this.timeLeft <= 0) {
       if (this.currentStepValue + 1 === this.allImgsTargets.length){
         clearInterval(this.intervalTimer);
@@ -116,7 +116,9 @@ export default class extends Controller {
 
   start(event){
     event.currentTarget.classList.add("d-none");
-    // this.startTimer();
+    this.startTimer();
+    this.timeTarget.classList.remove("d-none");
+    this.timerTarget.classList.remove("d-none")
     this.durations = JSON.parse(this.circleTarget.dataset.time);
     this.currentStepValue = 0;
     this.tlValue = gsap.timeline();
