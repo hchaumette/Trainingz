@@ -19,15 +19,23 @@ max-height: 100vh;
   display: flex;
   justify-content: space-between;
 }
-.created-a-determiner {
+.created-photo{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  text-align: center;
+  width: 180px;
   height: 180px;
   border-radius: 12px;
-  background-color: $blue-bis;
-  color: $blue;
+  background-color: $blue;
+  color: $orange;
+}
+.created-photo-button {
+  border: none;
+  border-radius: 8px;
+  background: $orange;
+  padding: 6px 12px;
+
 }
 
 .created-timer {
@@ -36,7 +44,7 @@ max-height: 100vh;
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 180px;
   height: 180px;
   border-radius: 12px;
   background-color: $orange;
