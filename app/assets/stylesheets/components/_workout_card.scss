@@ -8,23 +8,32 @@
   border-radius: 10px;
   padding: 8px;
 }
+.card-workout-dashboard {
+  background-size: cover;
+  background-position: center;
+  height: 40vh;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 10px;
+  padding: 8px;
+}
 
 .card-workout-infos {
-  background-color: rgba(245, 245, 245, .4);
+  background-color: rgba(242, 242, 242, 0.767);
   width: 100%;
   border-radius: 25px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 6px;
-
+  color: $blue;
   .text{
     font-size: 12px;
     display: flex;
     align-items: center;
   }
   .play_icone{
-    color: black;
+    color: $blue;
   }
 
 

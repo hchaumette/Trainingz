@@ -26,7 +26,7 @@
       <div class="cards">
         <% @search_workout.each do |workout| %>
           <%= link_to workout_path(workout) do %>
-          <%= render 'shared/workout_card', workout: workout%>
+          <%= render 'shared/workout_card_dashboard', workout: workout%>
           <% end %>
         <% end %>
       </div>
@@ -34,15 +34,17 @@
 
   <% else %>
     <h2 class="text-center m-5">ALL WORKOUTS</h2>
-    <div class="dash-container">
-      <div class="cards">
-        <% @workouts.each do |workout| %>
-          <%= link_to workout_path(workout) do %>
-          <%= render 'shared/workout_card', workout: workout%>
-          <% end %>
-        <% end %>
+      <div class="dash-container">
+        <div class="container justify-content-center">
+          <div class="cards">
+            <% @workouts.each do |workout| %>
+              <%= link_to workout_path(workout) do %>
+              <%= render 'shared/workout_card_dashboard', workout: workout%>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
   <% end %>
 
 
@@ -60,7 +62,7 @@
         <div class="cards">
           <% @duration_workout.each do |workout| %>
             <%= link_to workout_path(workout) do %>
-              <%= render 'shared/workout_card', workout: workout %>
+              <%= render 'shared/workout_card_dashboard', workout: workout %>
             <% end %>
           <% end %>
         </div>
